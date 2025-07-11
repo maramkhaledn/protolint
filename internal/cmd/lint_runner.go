@@ -3,8 +3,8 @@ package cmd
 import (
 	"io"
 
-	"github.com/yoheimuta/protolint/internal/libinternal"
-	"github.com/yoheimuta/protolint/internal/osutil"
+	"github.com/maramkhaledn/protolint/internal/libinternal"
+	"github.com/maramkhaledn/protolint/internal/osutil"
 )
 
 // CmdLintRunner implements the LintRunner interface for cmd package

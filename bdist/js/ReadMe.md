@@ -20,4 +20,4 @@ If you are required to authenticate against your mirror, use the following envir
 
 For node based projects, you can add the protobuf configuration to your `package.json` using a node called `protolint`.
 
-For more information about protolint, its parameters and command-line arguments refer to the original ReadMe in the [github repository](https://github.com/yoheimuta/protolint).
+For more information about protolint, its parameters and command-line arguments refer to the original ReadMe in the [github repository](https://github.com/maramkhaledn/protolint).

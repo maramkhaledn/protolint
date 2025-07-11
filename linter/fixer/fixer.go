@@ -10,7 +10,7 @@ import (
 
 	"github.com/yoheimuta/go-protoparser/v4/parser"
 
-	"github.com/yoheimuta/protolint/internal/osutil"
+	"github.com/maramkhaledn/protolint/internal/osutil"
 )
 
 // TextEdit represents the replacement of the code between Pos and End with the new text.
@@ -65,7 +65,7 @@ func NewBaseFixing(protoFileName string) (*BaseFixing, error) {
 	// because the parser recognizes only LF as a line ending.
 	//
 	// It will work for most cases like used LF, CRLF, and a mix of LF and CRLF.
-	// See also https://github.com/yoheimuta/protolint/issues/280.
+	// See also https://github.com/maramkhaledn/protolint/issues/280.
 	lineEnding := "\n"
 
 	return &BaseFixing{

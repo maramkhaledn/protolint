@@ -3,7 +3,7 @@ package osutil_test
 import (
 	"testing"
 
-	"github.com/yoheimuta/protolint/internal/osutil"
+	"github.com/maramkhaledn/protolint/internal/osutil"
 )
 
 func TestDetectLineEnding(t *testing.T) {

@@ -4,15 +4,15 @@ import (
 	"strings"
 
 	"github.com/yoheimuta/go-protoparser/v4/lexer"
-	"github.com/yoheimuta/protolint/linter/autodisable"
-	"github.com/yoheimuta/protolint/linter/fixer"
-	"github.com/yoheimuta/protolint/linter/rule"
+	"github.com/maramkhaledn/protolint/linter/autodisable"
+	"github.com/maramkhaledn/protolint/linter/fixer"
+	"github.com/maramkhaledn/protolint/linter/rule"
 
-	"github.com/yoheimuta/protolint/linter/strs"
+	"github.com/maramkhaledn/protolint/linter/strs"
 
 	"github.com/yoheimuta/go-protoparser/v4/parser"
-	"github.com/yoheimuta/protolint/linter/report"
-	"github.com/yoheimuta/protolint/linter/visitor"
+	"github.com/maramkhaledn/protolint/linter/report"
+	"github.com/maramkhaledn/protolint/linter/visitor"
 )
 
 // EnumFieldNamesPrefixRule verifies that enum field names are prefixed with its ENUM_NAME_UPPER_SNAKE_CASE.

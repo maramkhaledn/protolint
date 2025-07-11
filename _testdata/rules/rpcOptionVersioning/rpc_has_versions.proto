@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+
+service SearchApi {
+  rpc Search (SEARCHrquest) returns (SearchResponse) {
+    option (google.api.http) = {
+            get: "/v1/search"
+        };
+  };
+};
+
+service SearchLocationApi {
+  rpc SearchLocationPrimary (SearchRequest2) returns (SearchResponse2) {
+    option (google.api.http) = {
+      patch: "/v2/messages/{message_id}"
+      body: "*"
+    };
+  };
+  rpc    SearchLocation    (SearchRequest3) returns (SearchResponse3) {};
+};

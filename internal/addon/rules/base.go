@@ -1,6 +1,6 @@
 package rules
 
-import "github.com/yoheimuta/protolint/linter/rule"
+import "github.com/maramkhaledn/protolint/linter/rule"
 
 // RuleWithSeverity represents a rule with a configurable severity.
 type RuleWithSeverity struct {

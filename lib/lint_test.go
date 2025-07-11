@@ -6,8 +6,8 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/yoheimuta/protolint/internal/setting_test"
-	"github.com/yoheimuta/protolint/lib"
+	"github.com/maramkhaledn/protolint/internal/setting_test"
+	"github.com/maramkhaledn/protolint/lib"
 )
 
 func TestLint(t *testing.T) {

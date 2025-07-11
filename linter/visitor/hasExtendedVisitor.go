@@ -3,8 +3,8 @@ package visitor
 import (
 	"github.com/yoheimuta/go-protoparser/v4/parser"
 
-	"github.com/yoheimuta/protolint/linter/autodisable"
-	"github.com/yoheimuta/protolint/linter/report"
+	"github.com/maramkhaledn/protolint/linter/autodisable"
+	"github.com/maramkhaledn/protolint/linter/report"
 )
 
 // HasExtendedVisitor is a required interface given to RunVisitor.

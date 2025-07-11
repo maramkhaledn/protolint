@@ -3,8 +3,8 @@ package plugin
 import (
 	"github.com/yoheimuta/go-protoparser/v4/parser"
 
-	"github.com/yoheimuta/protolint/linter/report"
-	"github.com/yoheimuta/protolint/linter/rule"
+	"github.com/maramkhaledn/protolint/linter/report"
+	"github.com/maramkhaledn/protolint/linter/rule"
 )
 
 // RuleGen is a generator for a rule. It's adapted to rule.Rule interface.

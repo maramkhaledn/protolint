@@ -7,7 +7,7 @@ import (
 
 	yaml "gopkg.in/yaml.v2"
 
-	"github.com/yoheimuta/protolint/internal/linter/config"
+	"github.com/maramkhaledn/protolint/internal/linter/config"
 )
 
 func TestIndentOption_UnmarshalYAML(t *testing.T) {

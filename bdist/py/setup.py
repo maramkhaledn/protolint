@@ -120,7 +120,7 @@ for arch_platform in ap_map.keys():
             logger.debug("Writing WHEEL file")
             wl.writelines([
                 "Wheel-Version: 1.0\n",
-                "Generator: https://github.com/yoheimuta/protolint/\n",
+                "Generator: https://github.com/maramkhaledn/protolint/\n",
                 "Root-Is-PureLib: false\n",
                 f"Tag: {tag}\n"]
             )
@@ -132,13 +132,13 @@ for arch_platform in ap_map.keys():
                 f"Name: {package_name}\n",
                 f"Version: {version_id} \n",
                 "Summary: A pluggable linter and fixer to enforce Protocol Buffer style and conventions.\nThis package contains the pre-compiled binaries.\n",
-                "Home-page: https://github.com/yoheimuta/protolint/\n",
+                "Home-page: https://github.com/maramkhaledn/protolint/\n",
                 "Author: yohei yoshimuta\n",
                 "Maintainer: yohei yoshimuta\n",
                 "License: MIT\n",
-                "Project-URL: Official Website, https://github.com/yoheimuta/protolint/\n",
-                "Project-URL: Source Code, https://github.com/yoheimuta/protolint.git\n",
-                "Project-URL: Issue Tracker, https://github.com/yoheimuta/protolint/issues\n",
+                "Project-URL: Official Website, https://github.com/maramkhaledn/protolint/\n",
+                "Project-URL: Source Code, https://github.com/maramkhaledn/protolint.git\n",
+                "Project-URL: Issue Tracker, https://github.com/maramkhaledn/protolint/issues\n",
                 "Classifier: Development Status :: 5 - Production/Stable\n",
                 "Classifier: Environment :: Console\n",
                 "Classifier: Intended Audience :: Developers\n",

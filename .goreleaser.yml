@@ -29,7 +29,7 @@ builds:
         goarch: arm
         goarm: 7
     ldflags:
-      - -s -w -X github.com/yoheimuta/protolint/internal/cmd.version={{.Version}} -X github.com/yoheimuta/protolint/internal/cmd.revision={{.ShortCommit}}  # yamllint disable-line rule:line-length
+      - -s -w -X github.com/maramkhaledn/protolint/internal/cmd.version={{.Version}} -X github.com/maramkhaledn/protolint/internal/cmd.revision={{.ShortCommit}}  # yamllint disable-line rule:line-length
   -
     id: protoc-gen-protolint
     env:
@@ -55,7 +55,7 @@ builds:
         goarch: arm
         goarm: 7
     ldflags:
-      - -s -w -X github.com/yoheimuta/protolint/internal/cmd/protocgenprotolint.version={{.Version}} -X github.com/yoheimuta/protolint/internal/cmd/protocgenprotolint.revision={{.ShortCommit}}  # yamllint disable-line rule:line-length
+      - -s -w -X github.com/maramkhaledn/protolint/internal/cmd/protocgenprotolint.version={{.Version}} -X github.com/maramkhaledn/protolint/internal/cmd/protocgenprotolint.revision={{.ShortCommit}}  # yamllint disable-line rule:line-length
 archives:
 checksum:
   name_template: checksums.txt
@@ -78,7 +78,7 @@ brews:
       email: yoheimuta@gmail.com
     directory: Formula
     description: Pluggable tool to enforce Protocol Buffer style and conventions
-    homepage: https://github.com/yoheimuta/protolint
+    homepage: https://github.com/maramkhaledn/protolint
     test: |
       system "#{bin}/protolint", "version"
       system "#{bin}/protoc-gen-protolint", "version"

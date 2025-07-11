@@ -3,7 +3,7 @@ package lint
 import (
 	"fmt"
 
-	"github.com/yoheimuta/protolint/linter/autodisable"
+	"github.com/maramkhaledn/protolint/linter/autodisable"
 )
 
 type autoDisableFlag struct {

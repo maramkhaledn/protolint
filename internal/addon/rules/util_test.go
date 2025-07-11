@@ -1,11 +1,11 @@
 package rules_test
 
 import (
-	"github.com/yoheimuta/protolint/internal/linter/file"
-	"github.com/yoheimuta/protolint/internal/setting_test"
-	"github.com/yoheimuta/protolint/internal/util_test"
-	"github.com/yoheimuta/protolint/linter/rule"
-	"github.com/yoheimuta/protolint/linter/strs"
+	"github.com/maramkhaledn/protolint/internal/linter/file"
+	"github.com/maramkhaledn/protolint/internal/setting_test"
+	"github.com/maramkhaledn/protolint/internal/util_test"
+	"github.com/maramkhaledn/protolint/linter/rule"
+	"github.com/maramkhaledn/protolint/linter/strs"
 
 	"reflect"
 	"testing"

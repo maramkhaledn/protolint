@@ -1,6 +1,6 @@
 package config
 
-import "github.com/yoheimuta/protolint/internal/stringsutil"
+import "github.com/maramkhaledn/protolint/internal/stringsutil"
 
 // Ignore represents files ignoring the specific rule.
 type Ignore struct {

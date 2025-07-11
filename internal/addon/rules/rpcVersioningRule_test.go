@@ -4,10 +4,10 @@ import (
     "reflect"
     "testing"
 
-    "github.com/yoheimuta/go-protoparser/v4/parser"
+    "github.com//go-protoparser/v4/parser"
     "github.com/yoheimuta/go-protoparser/v4/parser/meta"
-    "github.com/yoheimuta/protolint/internal/addon/rules"
-    "github.com/yoheimuta/protolint/linter/rule"
+    "github.com/maramkhaledn/protolint/internal/addon/rules"
+    "github.com/maramkhaledn/protolint/linter/rule"
 )
 
 func TestRPCVersioningRule_Apply(t *testing.T) {

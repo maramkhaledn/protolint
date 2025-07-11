@@ -2,7 +2,7 @@ syntax = "proto3";
 package proto;
 
 option go_package = 
-  "github.com/yoheimuta/protolint/internal/addon/plugin/proto";
+  "github.com/maramkhaledn/protolint/internal/addon/plugin/proto";
 
 service RuleSetService {
   rpc ListRules(ListRulesRequest) returns (ListRulesResponse);

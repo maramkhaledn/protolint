@@ -5,8 +5,8 @@ import (
 	"io"
 	"strings"
 
-	"github.com/yoheimuta/protolint/internal/osutil"
-	"github.com/yoheimuta/protolint/lib"
+	"github.com/maramkhaledn/protolint/internal/osutil"
+	"github.com/maramkhaledn/protolint/lib"
 )
 
 // MockLintRunner is a mock implementation of LintRunner for testing

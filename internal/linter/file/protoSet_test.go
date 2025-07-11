@@ -4,8 +4,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/yoheimuta/protolint/internal/linter/file"
-	"github.com/yoheimuta/protolint/internal/setting_test"
+	"github.com/maramkhaledn/protolint/internal/linter/file"
+	"github.com/maramkhaledn/protolint/internal/setting_test"
 )
 
 func TestNewProtoSet(t *testing.T) {

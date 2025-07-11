@@ -6,18 +6,18 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/yoheimuta/protolint/internal/linter/file"
-	"github.com/yoheimuta/protolint/internal/setting_test"
-	"github.com/yoheimuta/protolint/internal/util_test"
-	"github.com/yoheimuta/protolint/linter/rule"
-	"github.com/yoheimuta/protolint/linter/strs"
+	"github.com/maramkhaledn/protolint/internal/linter/file"
+	"github.com/maramkhaledn/protolint/internal/setting_test"
+	"github.com/maramkhaledn/protolint/internal/util_test"
+	"github.com/maramkhaledn/protolint/linter/rule"
+	"github.com/maramkhaledn/protolint/linter/strs"
 
 	"github.com/yoheimuta/go-protoparser/v4/parser/meta"
 
 	"github.com/yoheimuta/go-protoparser/v4/parser"
 
-	"github.com/yoheimuta/protolint/internal/addon/rules"
-	"github.com/yoheimuta/protolint/linter/report"
+	"github.com/maramkhaledn/protolint/internal/addon/rules"
+	"github.com/maramkhaledn/protolint/linter/report"
 )
 
 func TestFileNamesLowerSnakeCaseRule_Apply(t *testing.T) {

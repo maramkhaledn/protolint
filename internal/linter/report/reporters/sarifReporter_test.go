@@ -6,9 +6,9 @@ import (
 
 	"github.com/yoheimuta/go-protoparser/v4/parser/meta"
 
-	"github.com/yoheimuta/protolint/internal/linter/report/reporters"
-	"github.com/yoheimuta/protolint/linter/report"
-	"github.com/yoheimuta/protolint/linter/rule"
+	"github.com/maramkhaledn/protolint/internal/linter/report/reporters"
+	"github.com/maramkhaledn/protolint/linter/report"
+	"github.com/maramkhaledn/protolint/linter/rule"
 )
 
 func TestSarifReporter_Report(t *testing.T) {
@@ -99,11 +99,11 @@ func TestSarifReporter_Report(t *testing.T) {
       ],
       "tool": {
         "driver": {
-          "informationUri": "https://github.com/yoheimuta/protolint",
+          "informationUri": "https://github.com/maramkhaledn/protolint",
           "name": "protolint",
           "rules": [
             {
-              "helpUri": "https://github.com/yoheimuta/protolint",
+              "helpUri": "https://github.com/maramkhaledn/protolint",
               "id": "ENUM_NAMES_UPPER_CAMEL_CASE"
             }
           ]

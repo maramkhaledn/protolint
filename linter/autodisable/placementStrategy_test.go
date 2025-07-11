@@ -6,9 +6,9 @@ import (
 
 	"github.com/yoheimuta/go-protoparser/v4/parser"
 	"github.com/yoheimuta/go-protoparser/v4/parser/meta"
-	"github.com/yoheimuta/protolint/internal/setting_test"
-	"github.com/yoheimuta/protolint/internal/util_test"
-	"github.com/yoheimuta/protolint/linter/autodisable"
+	"github.com/maramkhaledn/protolint/internal/setting_test"
+	"github.com/maramkhaledn/protolint/internal/util_test"
+	"github.com/maramkhaledn/protolint/linter/autodisable"
 )
 
 type inputDisable struct {

@@ -3,14 +3,14 @@ package lint
 import (
 	"flag"
 
-	"github.com/yoheimuta/protolint/internal/cmd/subcmds"
-	"github.com/yoheimuta/protolint/linter/autodisable"
+	"github.com/maramkhaledn/protolint/internal/cmd/subcmds"
+	"github.com/maramkhaledn/protolint/linter/autodisable"
 
-	"github.com/yoheimuta/protolint/internal/addon/plugin/shared"
+	"github.com/maramkhaledn/protolint/internal/addon/plugin/shared"
 
-	"github.com/yoheimuta/protolint/internal/linter/report/reporters"
+	"github.com/maramkhaledn/protolint/internal/linter/report/reporters"
 
-	"github.com/yoheimuta/protolint/internal/linter/report"
+	"github.com/maramkhaledn/protolint/internal/linter/report"
 )
 
 // Flags represents a set of lint flag parameters.

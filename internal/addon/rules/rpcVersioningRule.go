@@ -4,9 +4,9 @@ import (
     "regexp"
 
     "github.com/yoheimuta/go-protoparser/v4/parser"
-    "github.com/yoheimuta/protolint/linter/report"
-    "github.com/yoheimuta/protolint/linter/rule"
-    "github.com/yoheimuta/protolint/linter/visitor"
+    "github.com/maramkhaledn/protolint/linter/report"
+    "github.com/maramkhaledn/protolint/linter/rule"
+    "github.com/maramkhaledn/protolint/linter/visitor"
 )
 
 // Define the regex for versioning
@@ -36,7 +36,7 @@ func (r RPCVersioningRule) Purpose() string {
 
 // IsOfficial decides whether or not this rule belongs to the official guide.
 func (r RPCVersioningRule) IsOfficial() bool {
-    return false
+    return true
 }
 
 // Apply applies the rule to the proto.
@@ -67,8 +67,18 @@ func (v *rpcVersioningVisitor) VisitRPC(rpc *parser.RPC) bool {
 
 // extractURLFromOption extracts the URL from the option constant.
 func extractURLFromOption(constant interface{}) string {
-    // Assuming the constant is a string or structured data containing the URL.
-    // You may need to parse the constant based on its actual structure.
+    // Check if the constant is a map or structured data
+    if constantMap, ok := constant.(map[string]interface{}); ok {
+        // Extract the URL from known keys like "get", "patch", "post", "put", "delete"
+        for _, key := range []string{"get", "patch", "post", "put", "delete"} {
+            if url, exists := constantMap[key]; exists {
+                if urlStr, ok := url.(string); ok {
+                    return urlStr
+                }
+            }
+        }
+    }
+    // Fallback if the constant is a simple string
     if str, ok := constant.(string); ok {
         return str
     }

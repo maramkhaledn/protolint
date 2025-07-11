@@ -3,11 +3,11 @@ package config_test
 import (
 	"testing"
 
-	"github.com/yoheimuta/protolint/internal/filepathutil"
-	"github.com/yoheimuta/protolint/linter/autodisable"
+	"github.com/maramkhaledn/protolint/internal/filepathutil"
+	"github.com/maramkhaledn/protolint/linter/autodisable"
 
-	"github.com/yoheimuta/protolint/internal/cmd/subcmds"
-	"github.com/yoheimuta/protolint/internal/linter/config"
+	"github.com/maramkhaledn/protolint/internal/cmd/subcmds"
+	"github.com/maramkhaledn/protolint/internal/linter/config"
 )
 
 func TestExternalConfig_ShouldSkipRule(t *testing.T) {

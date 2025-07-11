@@ -3,14 +3,14 @@ package plugin
 import (
 	"path/filepath"
 
-	"github.com/yoheimuta/protolint/internal/addon/plugin/shared"
+	"github.com/maramkhaledn/protolint/internal/addon/plugin/shared"
 
 	"github.com/yoheimuta/go-protoparser/v4/parser"
 	"github.com/yoheimuta/go-protoparser/v4/parser/meta"
 
-	"github.com/yoheimuta/protolint/internal/addon/plugin/proto"
-	"github.com/yoheimuta/protolint/linter/report"
-	"github.com/yoheimuta/protolint/linter/rule"
+	"github.com/maramkhaledn/protolint/internal/addon/plugin/proto"
+	"github.com/maramkhaledn/protolint/linter/report"
+	"github.com/maramkhaledn/protolint/linter/rule"
 )
 
 // externalRule represents a customized rule that works as a plugin.

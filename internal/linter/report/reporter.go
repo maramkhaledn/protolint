@@ -4,7 +4,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/yoheimuta/protolint/linter/report"
+	"github.com/maramkhaledn/protolint/linter/report"
 )
 
 const (

@@ -4,8 +4,8 @@ import (
 	"io"
 
 	"github.com/chavacava/garif"
-	"github.com/yoheimuta/protolint/linter/report"
-	"github.com/yoheimuta/protolint/linter/rule"
+	"github.com/maramkhaledn/protolint/linter/report"
+	"github.com/maramkhaledn/protolint/linter/rule"
 )
 
 // SarifReporter creates reports formatted as a JSON
@@ -38,7 +38,7 @@ func (r SarifReporter) Report(w io.Writer, fs []report.Failure) error {
 	artifactLocations := []string{}
 
 	tool := garif.NewDriver("protolint").
-		WithInformationUri("https://github.com/yoheimuta/protolint")
+		WithInformationUri("https://github.com/maramkhaledn/protolint")
 
 	run := garif.NewRun(garif.NewTool(tool))
 
@@ -48,7 +48,7 @@ func (r SarifReporter) Report(w io.Writer, fs []report.Failure) error {
 			rule := garif.NewRule(
 				failure.RuleID(),
 			).
-				WithHelpUri("https://github.com/yoheimuta/protolint")
+				WithHelpUri("https://github.com/maramkhaledn/protolint")
 
 			rulesByID[failure.RuleID()] = rule
 			allRules = append(allRules, rule)

@@ -2,7 +2,7 @@ package visitor
 
 import (
 	"github.com/yoheimuta/go-protoparser/v4/parser"
-	"github.com/yoheimuta/protolint/linter/fixer"
+	"github.com/maramkhaledn/protolint/linter/fixer"
 )
 
 // BaseFixableVisitor represents a base visitor which can fix failures.

@@ -9,7 +9,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/yoheimuta/protolint/linter/report"
+	"github.com/maramkhaledn/protolint/linter/report"
 )
 
 type CiPipelineLogTemplate string

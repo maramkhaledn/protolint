@@ -3,8 +3,8 @@ package rules_test
 import (
 	"testing"
 
-	"github.com/yoheimuta/protolint/internal/addon/rules"
-	"github.com/yoheimuta/protolint/linter/rule"
+	"github.com/maramkhaledn/protolint/internal/addon/rules"
+	"github.com/maramkhaledn/protolint/linter/rule"
 )
 
 func TestRulesWithSeverityHasSeverity(t *testing.T) {
