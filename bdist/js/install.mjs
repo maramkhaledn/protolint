@@ -20,7 +20,7 @@ const script_name = "protolint-install";
 
 const module_name = "protolint";
 const protolint_host = process.env.PROTOLINT_MIRROR_HOST ?? "https://github.com";
-const protolint_path = process.env.PROTOLINT_MIRROR_REMOTE_PATH ?? `yoheimuta/${module_name}/releases/download/`;
+const protolint_path = process.env.PROTOLINT_MIRROR_REMOTE_PATH ?? `marakhaledn/${module_name}/releases/download/`;
 const protolint_version = process.env.npm_package_version;
 const platform = _platform_mapping[_platform] ?? _platform;
 const arch = _arch_mapping[_arch] ?? _arch;

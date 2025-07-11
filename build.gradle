@@ -3,12 +3,12 @@ plugins {
     id 'signing'
 }
 
-group = 'io.github.yoheimuta'
+group = 'io.github.marakhaledn'
 
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId = 'io.github.yoheimuta'
+            groupId = 'io.github.marakhaledn'
             artifactId = rootProject.name
             version = System.getenv("GITHUB_REF_NAME")
             // Strip "v" from version number
@@ -19,24 +19,24 @@ publishing {
             pom {
                 name = groupId + ':' + rootProject.name
                 description = 'protolint is the pluggable linting/fixing utility for Protocol Buffer files (proto2+proto3)'
-                url = 'https://github.com/maramkhaledn/protolint'
+                url = 'https://github.com/marakhaledn/protolint'
                 licenses {
                     license {
                         name = 'MIT License'
-                        url = 'https://github.com/maramkhaledn/protolint/blob/master/LICENSE'
+                        url = 'https://github.com/marakhaledn/protolint/blob/master/LICENSE'
                     }
                 }
                 developers {
                     developer {
-                        id = 'yoheimuta'
-                        name = 'yohei yoshimuta'
-                        email = 'yoheimuta@gmail.com'
+                        id = 'marakhaledn'
+                        name = 'maram khaled'
+                        email = 'marakhaledn@gmail.com'
                     }
                 }
                 scm {
-                    connection = 'scm:git:git@github.com:yoheimuta/protolint.git'
-                    developerConnection = 'scm:git:git@github.com:yoheimuta/protolint.git'
-                    url = 'https://github.com/maramkhaledn/protolint'
+                    connection = 'scm:git:git@github.com:marakhaledn/protolint.git'
+                    developerConnection = 'scm:git:git@github.com:marakhaledn/protolint.git'
+                    url = 'https://github.com/marakhaledn/protolint'
                 }
             }
 
