@@ -3,12 +3,12 @@ plugins {
     id 'signing'
 }
 
-group = 'io.github.marakhaledn'
+group = 'io.github.maramkhaledn'
 
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId = 'io.github.marakhaledn'
+            groupId = 'io.github.maramkhaledn'
             artifactId = rootProject.name
             version = System.getenv("GITHUB_REF_NAME")
             // Strip "v" from version number
@@ -19,24 +19,24 @@ publishing {
             pom {
                 name = groupId + ':' + rootProject.name
                 description = 'protolint is the pluggable linting/fixing utility for Protocol Buffer files (proto2+proto3)'
-                url = 'https://github.com/marakhaledn/protolint'
+                url = 'https://github.com/maramkhaledn/protolint'
                 licenses {
                     license {
                         name = 'MIT License'
-                        url = 'https://github.com/marakhaledn/protolint/blob/master/LICENSE'
+                        url = 'https://github.com/maramkhaledn/protolint/blob/master/LICENSE'
                     }
                 }
                 developers {
                     developer {
-                        id = 'marakhaledn'
+                        id = 'maramkhaledn'
                         name = 'maram khaled'
-                        email = 'marakhaledn@gmail.com'
+                        email = 'maramkhaledn@gmail.com'
                     }
                 }
                 scm {
-                    connection = 'scm:git:git@github.com:marakhaledn/protolint.git'
-                    developerConnection = 'scm:git:git@github.com:marakhaledn/protolint.git'
-                    url = 'https://github.com/marakhaledn/protolint'
+                    connection = 'scm:git:git@github.com:maramkhaledn/protolint.git'
+                    developerConnection = 'scm:git:git@github.com:maramkhaledn/protolint.git'
+                    url = 'https://github.com/maramkhaledn/protolint'
                 }
             }
 
