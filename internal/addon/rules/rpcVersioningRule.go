@@ -65,7 +65,6 @@ func (v *rpcVersioningVisitor) VisitRPC(rpc *parser.RPC) bool {
     return false
 }
 
-// extractURLFromOption extracts the URL from the option constant.
 func extractURLFromOption(constant interface{}) string {
     // Check if the constant is a map or structured data
     if constantMap, ok := constant.(map[string]interface{}); ok {
@@ -81,6 +80,15 @@ func extractURLFromOption(constant interface{}) string {
     // Fallback if the constant is a simple string
     if str, ok := constant.(string); ok {
         return str
+    }
+    // Handle multi-line structured data (e.g., "{patch:\"/v2/messages/{message_id}\" body:\"*\"}")
+    if constantStr, ok := constant.(string); ok {
+        // Use regex to extract the URL after the first double quotation mark
+        regex := regexp.MustCompile(`(get|patch|post|put|delete):"([^"]+)"`)
+        matches := regex.FindStringSubmatch(constantStr)
+        if len(matches) > 2 {
+            return matches[2] // Extract the URL part
+        }
     }
     return ""
 }
