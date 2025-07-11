@@ -50,7 +50,7 @@ run/cmd/protolint/exampleconfig:
 ## build/cmd/protolint builds protolint
 build/cmd/protolint:
 	go build \
-		-ldflags "-X github.com/yoheimuta/protolint/internal/cmd.version=`git describe --tags --abbrev=0` -X github.com/yoheimuta/protolint/internal/cmd.revision=`git rev-parse --short HEAD`" \
+		-ldflags "-X github.com/maramkhaledn/protolint/internal/cmd.version=`git describe --tags --abbrev=0` -X github.com/maramkhaledn/protolint/internal/cmd.revision=`git rev-parse --short HEAD`" \
 		-o protolint \
 		cmd/protolint/main.go
 
@@ -61,6 +61,6 @@ build/example/plugin:
 ## build/cmd/protoc-gen-protolint builds protoc-gen-protolint
 build/cmd/protoc-gen-protolint:
 	go build \
-		-ldflags "-X github.com/yoheimuta/protolint/internal/cmd/protocgenprotolint.version=`git describe --tags --abbrev=0` -X github.com/yoheimuta/protolint/internal/cmd/protocgenprotolint.revision=`git rev-parse --short HEAD`" \
+		-ldflags "-X github.com/maramkhaledn/protolint/internal/cmd/protocgenprotolint.version=`git describe --tags --abbrev=0` -X github.com/maramkhaledn/protolint/internal/cmd/protocgenprotolint.revision=`git rev-parse --short HEAD`" \
 		-o protoc-gen-protolint \
 		cmd/protoc-gen-protolint/main.go

@@ -5,11 +5,11 @@ import (
 
 	"github.com/yoheimuta/go-protoparser/v4/parser"
 
-	"github.com/yoheimuta/protolint/internal/stringsutil"
-	"github.com/yoheimuta/protolint/linter/report"
-	"github.com/yoheimuta/protolint/linter/rule"
-	"github.com/yoheimuta/protolint/linter/strs"
-	"github.com/yoheimuta/protolint/linter/visitor"
+	"github.com/maramkhaledn/protolint/internal/stringsutil"
+	"github.com/maramkhaledn/protolint/linter/report"
+	"github.com/maramkhaledn/protolint/linter/rule"
+	"github.com/maramkhaledn/protolint/linter/strs"
+	"github.com/maramkhaledn/protolint/linter/visitor"
 )
 
 // MessageNamesExcludePrepositionsRule verifies that all message names don't include prepositions (e.g. "With", "For").

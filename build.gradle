@@ -19,11 +19,11 @@ publishing {
             pom {
                 name = groupId + ':' + rootProject.name
                 description = 'protolint is the pluggable linting/fixing utility for Protocol Buffer files (proto2+proto3)'
-                url = 'https://github.com/yoheimuta/protolint'
+                url = 'https://github.com/maramkhaledn/protolint'
                 licenses {
                     license {
                         name = 'MIT License'
-                        url = 'https://github.com/yoheimuta/protolint/blob/master/LICENSE'
+                        url = 'https://github.com/maramkhaledn/protolint/blob/master/LICENSE'
                     }
                 }
                 developers {
@@ -36,7 +36,7 @@ publishing {
                 scm {
                     connection = 'scm:git:git@github.com:yoheimuta/protolint.git'
                     developerConnection = 'scm:git:git@github.com:yoheimuta/protolint.git'
-                    url = 'https://github.com/yoheimuta/protolint'
+                    url = 'https://github.com/maramkhaledn/protolint'
                 }
             }
 

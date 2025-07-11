@@ -3,7 +3,7 @@ package rule
 import (
 	"github.com/yoheimuta/go-protoparser/v4/parser"
 
-	"github.com/yoheimuta/protolint/linter/report"
+	"github.com/maramkhaledn/protolint/linter/report"
 )
 
 // Severity represents the severity of the rule.

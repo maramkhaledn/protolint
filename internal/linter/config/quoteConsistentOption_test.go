@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/yoheimuta/protolint/internal/linter/config"
+	"github.com/maramkhaledn/protolint/internal/linter/config"
 	"gopkg.in/yaml.v2"
 )
 

@@ -1,6 +1,6 @@
 package stringsutil
 
-import "github.com/yoheimuta/protolint/internal/filepathutil"
+import "github.com/maramkhaledn/protolint/internal/filepathutil"
 
 // ContainsStringInSlice searches the haystack for the needle.
 func ContainsStringInSlice(

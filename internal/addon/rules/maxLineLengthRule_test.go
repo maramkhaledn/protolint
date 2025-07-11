@@ -6,13 +6,13 @@ import (
 
 	"github.com/yoheimuta/go-protoparser/v4/parser/meta"
 
-	"github.com/yoheimuta/protolint/internal/setting_test"
+	"github.com/maramkhaledn/protolint/internal/setting_test"
 
 	"github.com/yoheimuta/go-protoparser/v4/parser"
 
-	"github.com/yoheimuta/protolint/internal/addon/rules"
-	"github.com/yoheimuta/protolint/linter/report"
-	"github.com/yoheimuta/protolint/linter/rule"
+	"github.com/maramkhaledn/protolint/internal/addon/rules"
+	"github.com/maramkhaledn/protolint/linter/report"
+	"github.com/maramkhaledn/protolint/linter/rule"
 )
 
 func TestMaxLineLengthRule_Apply(t *testing.T) {

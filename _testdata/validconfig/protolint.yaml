@@ -15,6 +15,7 @@ lint:
     add:
       - FIELD_NAMES_LOWER_SNAKE_CASE
       - MESSAGE_NAMES_UPPER_CAMEL_CASE
+      - RPC_ARE_VERSIONED
 
     remove:
       - RPC_NAMES_UPPER_CAMEL_CASE

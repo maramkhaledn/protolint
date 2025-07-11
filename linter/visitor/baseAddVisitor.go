@@ -4,7 +4,7 @@ import (
 	"github.com/yoheimuta/go-protoparser/v4/parser"
 	"github.com/yoheimuta/go-protoparser/v4/parser/meta"
 
-	"github.com/yoheimuta/protolint/linter/report"
+	"github.com/maramkhaledn/protolint/linter/report"
 )
 
 // BaseAddVisitor represents a base visitor which can accumulate failures.

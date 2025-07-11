@@ -7,7 +7,7 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 
-	"github.com/yoheimuta/protolint/internal/addon/plugin/shared"
+	"github.com/maramkhaledn/protolint/internal/addon/plugin/shared"
 
 	"github.com/hashicorp/go-plugin"
 )
@@ -49,7 +49,7 @@ func (f *PluginFlag) BuildPlugins(verbose bool) ([]shared.RuleSet, error) {
 				Level:  level,
 				Name:   "plugin",
 			}),
-			// To cleanup. See. https://github.com/yoheimuta/protolint/issues/237
+			// To cleanup. See. https://github.com/maramkhaledn/protolint/issues/237
 			Managed: true,
 		})
 

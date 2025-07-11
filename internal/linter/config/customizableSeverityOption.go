@@ -1,6 +1,6 @@
 package config
 
-import "github.com/yoheimuta/protolint/linter/rule"
+import "github.com/maramkhaledn/protolint/linter/rule"
 
 // CustomizableSeverityOption represents an option where the
 // severity of a rule can be configured via yaml.

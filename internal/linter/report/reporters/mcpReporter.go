@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/yoheimuta/protolint/linter/report"
+	"github.com/maramkhaledn/protolint/linter/report"
 )
 
 // MCPReporter prints failures in MCP friendly JSON format.

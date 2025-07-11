@@ -4,14 +4,14 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/yoheimuta/protolint/internal/addon/plugin/shared"
+	"github.com/maramkhaledn/protolint/internal/addon/plugin/shared"
 
-	"github.com/yoheimuta/protolint/internal/linter/config"
+	"github.com/maramkhaledn/protolint/internal/linter/config"
 
-	"github.com/yoheimuta/protolint/internal/cmd/subcmds"
-	"github.com/yoheimuta/protolint/internal/osutil"
-	"github.com/yoheimuta/protolint/linter/autodisable"
-	"github.com/yoheimuta/protolint/linter/rule"
+	"github.com/maramkhaledn/protolint/internal/cmd/subcmds"
+	"github.com/maramkhaledn/protolint/internal/osutil"
+	"github.com/maramkhaledn/protolint/linter/autodisable"
+	"github.com/maramkhaledn/protolint/linter/rule"
 )
 
 // CmdList is a rule list command.

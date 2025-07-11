@@ -6,7 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/yoheimuta/protolint/internal/libinternal"
+	"github.com/maramkhaledn/protolint/internal/libinternal"
 )
 
 // Tool defines the interface for MCP tools

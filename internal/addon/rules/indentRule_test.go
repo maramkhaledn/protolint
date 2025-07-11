@@ -5,17 +5,17 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/yoheimuta/protolint/internal/util_test"
+	"github.com/maramkhaledn/protolint/internal/util_test"
 
 	"github.com/yoheimuta/go-protoparser/v4/parser/meta"
 
-	"github.com/yoheimuta/protolint/internal/linter/file"
+	"github.com/maramkhaledn/protolint/internal/linter/file"
 
-	"github.com/yoheimuta/protolint/internal/setting_test"
+	"github.com/maramkhaledn/protolint/internal/setting_test"
 
-	"github.com/yoheimuta/protolint/internal/addon/rules"
-	"github.com/yoheimuta/protolint/linter/report"
-	"github.com/yoheimuta/protolint/linter/rule"
+	"github.com/maramkhaledn/protolint/internal/addon/rules"
+	"github.com/maramkhaledn/protolint/linter/report"
+	"github.com/maramkhaledn/protolint/linter/rule"
 )
 
 func TestIndentRule_Apply(t *testing.T) {
@@ -152,22 +152,22 @@ func TestIndentRule_Apply(t *testing.T) {
 			},
 		},
 		{
-			name:           "handle the proto containing extend. Fix https://github.com/yoheimuta/protolint/issues/63",
+			name:           "handle the proto containing extend. Fix https://github.com/maramkhaledn/protolint/issues/63",
 			inputProtoPath: setting_test.TestDataPath("rules", "indentrule", "issue_63.proto"),
 		},
 		{
 			name: `handle the case that the last rpc method of a service is having a statement block.
-Fix https://github.com/yoheimuta/protolint/issues/74`,
+Fix https://github.com/maramkhaledn/protolint/issues/74`,
 			inputProtoPath: setting_test.TestDataPath("rules", "indentrule", "issue_74.proto"),
 		},
 		{
 			name: `skip wrong indentations of inner elements on the same line.
-Fix https://github.com/yoheimuta/protolint/issues/139`,
+Fix https://github.com/maramkhaledn/protolint/issues/139`,
 			inputProtoPath: setting_test.TestDataPath("rules", "indentrule", "issue_139.proto"),
 		},
 		{
 			name: `detect only a toplevel indentation mistake and skip other than that on the same line.
-Fix https://github.com/yoheimuta/protolint/issues/139`,
+Fix https://github.com/maramkhaledn/protolint/issues/139`,
 			inputProtoPath: setting_test.TestDataPath("rules", "indentrule", "incorrect_issue_139.proto"),
 			wantFailures: []report.Failure{
 				report.Failuref(
@@ -187,7 +187,7 @@ Fix https://github.com/yoheimuta/protolint/issues/139`,
 		},
 		{
 			name: `do not skip wrong indentations of inner elements on the same line.
-Fix https://github.com/yoheimuta/protolint/issues/139`,
+Fix https://github.com/maramkhaledn/protolint/issues/139`,
 			inputProtoPath:     setting_test.TestDataPath("rules", "indentrule", "incorrect_issue_139_short.proto"),
 			inputInsertNewline: true,
 			wantFailures: []report.Failure{
@@ -230,7 +230,7 @@ Fix https://github.com/yoheimuta/protolint/issues/139`,
 		},
 		{
 			name: `handle the case that the proto has a mixture of line ending formats like LF and CRLF.
-Fix https://github.com/yoheimuta/protolint/issues/280`,
+Fix https://github.com/maramkhaledn/protolint/issues/280`,
 			inputProtoPath: setting_test.TestDataPath("rules", "indentrule", "issue_280_mix_lineending.proto"),
 			wantFailures: []report.Failure{
 				report.Failuref(
@@ -425,12 +425,12 @@ func TestIndentRule_Apply_fix(t *testing.T) {
 			wantCorrectData: correctIssue99Path,
 		},
 		{
-			name:            "do nothing against inner elements on the same line. Fix https://github.com/yoheimuta/protolint/issues/139",
+			name:            "do nothing against inner elements on the same line. Fix https://github.com/maramkhaledn/protolint/issues/139",
 			inputTestData:   incorrectIssue139Path,
 			wantCorrectData: correctIssue139Path,
 		},
 		{
-			name:               "insert linebreaks against inner elements on the same line. Fix https://github.com/yoheimuta/protolint/issues/139",
+			name:               "insert linebreaks against inner elements on the same line. Fix https://github.com/maramkhaledn/protolint/issues/139",
 			inputTestData:      incorrectIssue139Path,
 			inputInsertNewline: true,
 			wantCorrectData:    correctIssue139InsertPath,

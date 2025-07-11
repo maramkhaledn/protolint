@@ -4,8 +4,8 @@ import (
 	"log"
 
 	"github.com/yoheimuta/go-protoparser/v4/parser"
-	"github.com/yoheimuta/protolint/linter/disablerule"
-	"github.com/yoheimuta/protolint/linter/fixer"
+	"github.com/maramkhaledn/protolint/linter/disablerule"
+	"github.com/maramkhaledn/protolint/linter/fixer"
 )
 
 type commentator struct {

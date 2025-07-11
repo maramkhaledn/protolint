@@ -7,7 +7,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/yoheimuta/protolint/internal/osutil"
+	"github.com/maramkhaledn/protolint/internal/osutil"
 )
 
 // Server represents an MCP server

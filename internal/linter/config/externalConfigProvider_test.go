@@ -5,10 +5,10 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/yoheimuta/protolint/internal/setting_test"
+	"github.com/maramkhaledn/protolint/internal/setting_test"
 
-	"github.com/yoheimuta/protolint/internal/linter/config"
-	"github.com/yoheimuta/protolint/linter/rule"
+	"github.com/maramkhaledn/protolint/internal/linter/config"
+	"github.com/maramkhaledn/protolint/linter/rule"
 )
 
 func TestGetExternalConfig(t *testing.T) {

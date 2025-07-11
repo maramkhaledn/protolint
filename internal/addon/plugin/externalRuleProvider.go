@@ -1,10 +1,10 @@
 package plugin
 
 import (
-	"github.com/yoheimuta/protolint/internal/addon/plugin/proto"
-	"github.com/yoheimuta/protolint/internal/addon/plugin/shared"
+	"github.com/maramkhaledn/protolint/internal/addon/plugin/proto"
+	"github.com/maramkhaledn/protolint/internal/addon/plugin/shared"
 
-	"github.com/yoheimuta/protolint/linter/rule"
+	"github.com/maramkhaledn/protolint/linter/rule"
 )
 
 // GetExternalRules provides the external rules.

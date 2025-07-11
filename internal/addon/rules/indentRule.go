@@ -7,9 +7,9 @@ import (
 	"github.com/yoheimuta/go-protoparser/v4/parser"
 	"github.com/yoheimuta/go-protoparser/v4/parser/meta"
 
-	"github.com/yoheimuta/protolint/linter/report"
-	"github.com/yoheimuta/protolint/linter/rule"
-	"github.com/yoheimuta/protolint/linter/visitor"
+	"github.com/maramkhaledn/protolint/linter/report"
+	"github.com/maramkhaledn/protolint/linter/rule"
+	"github.com/maramkhaledn/protolint/linter/visitor"
 )
 
 const (
@@ -375,7 +375,7 @@ func (v indentVisitor) fix(proto *parser.Proto) error {
 					for j := len(fixes) - 1; 0 <= j; j-- {
 						indentation := strings.Repeat(v.style, fixes[j].level)
 						if fixes[j].isLast {
-							// deal with last position followed by ';'. See https://github.com/yoheimuta/protolint/issues/99
+							// deal with last position followed by ';'. See https://github.com/maramkhaledn/protolint/issues/99
 							for line[fixes[j].pos.Column-1] == ';' {
 								fixes[j].pos.Column--
 							}

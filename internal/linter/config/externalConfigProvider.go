@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/yoheimuta/protolint/internal/stringsutil"
+	"github.com/maramkhaledn/protolint/internal/stringsutil"
 )
 
 type configLoader interface {

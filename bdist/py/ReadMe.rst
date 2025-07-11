@@ -46,4 +46,4 @@ More information
 ----------------
 
 You will find more information on the `projects
-homepage <https://github.com/yoheimuta/protolint>`__.
+homepage <https://github.com/maramkhaledn/protolint>`__.

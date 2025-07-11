@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"io"
 
-	"github.com/yoheimuta/protolint/linter/report"
+	"github.com/maramkhaledn/protolint/linter/report"
 )
 
 const (

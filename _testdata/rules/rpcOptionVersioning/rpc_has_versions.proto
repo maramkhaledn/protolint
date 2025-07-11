@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+
+service NoVersionApi {
+  rpc NoVersion (Searchrquest) returns (SearchResponse) {
+    option (google.api.http) = {
+            get: "/search"
+        };
+  };
+};
+
+service VersionedApi {
+  rpc ValidVersion (SearchRequest2) returns (SearchResponse2) {
+    option (google.api.http) = {
+      patch: "/v2/messages/{message_id}"
+      body: "*"
+    };
+  };
+  rpc  MissingVersionNumber    (SearchRequest3) returns (SearchResponse3) {
+    option (google.api.http) = {
+      patch: "/v/messages/{message_id}"
+      body: "*"
+    };
+  };
+};

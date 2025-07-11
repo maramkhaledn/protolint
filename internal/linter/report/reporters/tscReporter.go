@@ -5,7 +5,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/yoheimuta/protolint/linter/report"
+	"github.com/maramkhaledn/protolint/linter/report"
 )
 
 // TscRport prints failures as string compatible to Type script compiler

@@ -24,4 +24,4 @@ protolint list -plugin ./plugin_example
 
 NOTE: `sh` must be in your PATH.
 
-NOTE2: Even when you specify the plugin, the configuration defined in `.protolint.yaml` can stop your plugin from working. Check the yaml when your plugin doesn't appear to be working. See https://github.com/yoheimuta/protolint/issues/260 in detail.
+NOTE2: Even when you specify the plugin, the configuration defined in `.protolint.yaml` can stop your plugin from working. Check the yaml when your plugin doesn't appear to be working. See https://github.com/maramkhaledn/protolint/issues/260 in detail.

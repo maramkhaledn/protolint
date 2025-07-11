@@ -4,7 +4,7 @@ import (
 	"errors"
 	"io"
 
-	"github.com/yoheimuta/protolint/internal/osutil"
+	"github.com/maramkhaledn/protolint/internal/osutil"
 )
 
 var (

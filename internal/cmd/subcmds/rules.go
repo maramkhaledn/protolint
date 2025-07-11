@@ -1,12 +1,14 @@
 package subcmds
 
 import (
-	"github.com/yoheimuta/protolint/internal/addon/plugin"
-	"github.com/yoheimuta/protolint/internal/addon/plugin/shared"
-	"github.com/yoheimuta/protolint/internal/addon/rules"
-	"github.com/yoheimuta/protolint/internal/linter/config"
-	internalrule "github.com/yoheimuta/protolint/internal/linter/rule"
-	"github.com/yoheimuta/protolint/linter/autodisable"
+	"github.com/maramkhaledn/protolint/internal/addon/plugin"
+	"github.com/maramkhaledn/protolint/internal/addon/plugin/shared"
+	"github.com/maramkhaledn/protolint/internal/addon/rules"
+	"github.com/maramkhaledn/protolint/internal/linter/config"
+	internalrule "github.com/maramkhaledn/protolint/internal/linter/rule"
+	"github.com/maramkhaledn/protolint/linter/autodisable"
+	// Add your custom rules import
+	// customrules "github.com/maramkhaledn/protolint/plugin/customrules"
 )
 
 // NewAllRules creates new all rules.
@@ -176,6 +178,9 @@ func newAllInternalRules(
 			rpcsHaveComment.Severity,
 			rpcsHaveComment.ShouldFollowGolangStyle,
 		),
+		rules.NewRPCVersioningRule(
+			option.RPCVersioning.Severity,
+		),
 		rules.NewServiceNamesUpperCamelCaseRule(
 			option.ServiceNamesUpperCamelCase.Severity,
 			fixMode,
@@ -189,5 +194,6 @@ func newAllInternalRules(
 			option.ServicesHaveComment.Severity,
 			servicesHaveComment.ShouldFollowGolangStyle,
 		),
+
 	}
 }

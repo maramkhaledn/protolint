@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yoheimuta/protolint.git"
+    "url": "git+https://github.com/maramkhaledn/protolint.git"
   },
   "files": [
     "install.mjs",
@@ -37,9 +37,9 @@
   "author": "yohei yoshimuta",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yoheimuta/protolint/issues"
+    "url": "https://github.com/maramkhaledn/protolint/issues"
   },
-  "homepage": "https://github.com/yoheimuta/protolint#readme",
+  "homepage": "https://github.com/maramkhaledn/protolint#readme",
   "dependencies": {
     "got": "^12.0.0",
     "got-fetch": "^5.1.6",

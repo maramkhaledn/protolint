@@ -4,12 +4,12 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/yoheimuta/protolint/internal/linter/report/reporters"
+	"github.com/maramkhaledn/protolint/internal/linter/report/reporters"
 
 	"github.com/yoheimuta/go-protoparser/v4/parser/meta"
 
-	"github.com/yoheimuta/protolint/linter/report"
-	"github.com/yoheimuta/protolint/linter/rule"
+	"github.com/maramkhaledn/protolint/linter/report"
+	"github.com/maramkhaledn/protolint/linter/rule"
 )
 
 func TestTscReporter_Report(t *testing.T) {

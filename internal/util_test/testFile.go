@@ -4,7 +4,7 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/yoheimuta/protolint/internal/osutil"
+	"github.com/maramkhaledn/protolint/internal/osutil"
 )
 
 // TestData is a wrapped test file.

@@ -1,6 +1,6 @@
 package config
 
-import "github.com/yoheimuta/protolint/internal/stringsutil"
+import "github.com/maramkhaledn/protolint/internal/stringsutil"
 
 // Files represents the target files.
 type Files struct {

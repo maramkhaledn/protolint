@@ -1,6 +1,6 @@
 package rule
 
-import "github.com/yoheimuta/protolint/linter/rule"
+import "github.com/maramkhaledn/protolint/linter/rule"
 
 // Rules is a list of Rules.
 type Rules []rule.Rule

@@ -2,12 +2,12 @@ package rules
 
 import (
 	"github.com/yoheimuta/go-protoparser/v4/parser"
-	"github.com/yoheimuta/protolint/internal/linter/config"
+	"github.com/maramkhaledn/protolint/internal/linter/config"
 
-	"github.com/yoheimuta/protolint/linter/report"
-	"github.com/yoheimuta/protolint/linter/rule"
-	"github.com/yoheimuta/protolint/linter/strs"
-	"github.com/yoheimuta/protolint/linter/visitor"
+	"github.com/maramkhaledn/protolint/linter/report"
+	"github.com/maramkhaledn/protolint/linter/rule"
+	"github.com/maramkhaledn/protolint/linter/strs"
+	"github.com/maramkhaledn/protolint/linter/visitor"
 )
 
 // RPCNamesCaseRule verifies that all rpc names conform to the specified convention.

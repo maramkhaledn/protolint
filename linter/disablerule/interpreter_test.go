@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/yoheimuta/protolint/linter/disablerule"
+	"github.com/maramkhaledn/protolint/linter/disablerule"
 
 	"github.com/yoheimuta/go-protoparser/v4/parser"
 )

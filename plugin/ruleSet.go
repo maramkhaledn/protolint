@@ -3,9 +3,9 @@ package plugin
 import (
 	"fmt"
 
-	"github.com/yoheimuta/protolint/internal/addon/plugin/proto"
-	"github.com/yoheimuta/protolint/internal/linter/file"
-	"github.com/yoheimuta/protolint/linter/rule"
+	"github.com/maramkhaledn/protolint/internal/addon/plugin/proto"
+	"github.com/maramkhaledn/protolint/internal/linter/file"
+	"github.com/maramkhaledn/protolint/linter/rule"
 )
 
 type ruleSet struct {

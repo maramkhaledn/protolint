@@ -3,10 +3,10 @@ package main
 import (
 	"os"
 
-	"github.com/yoheimuta/protolint/internal/cmd"
+	"github.com/maramkhaledn/protolint/internal/cmd"
 )
 
-// DEPRECATED: Use cmd/protolint. See https://github.com/yoheimuta/protolint/issues/20.
+// DEPRECATED: Use cmd/protolint. See https://github.com/maramkhaledn/protolint/issues/20.
 func main() {
 	// Initialize the lint runner
 	cmd.Initialize()

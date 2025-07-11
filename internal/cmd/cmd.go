@@ -5,10 +5,10 @@ import (
 	"io"
 	"strings"
 
-	"github.com/yoheimuta/protolint/internal/cmd/subcmds/lint"
-	"github.com/yoheimuta/protolint/internal/cmd/subcmds/list"
-	"github.com/yoheimuta/protolint/internal/osutil"
-	"github.com/yoheimuta/protolint/mcp"
+	"github.com/maramkhaledn/protolint/internal/cmd/subcmds/lint"
+	"github.com/maramkhaledn/protolint/internal/cmd/subcmds/list"
+	"github.com/maramkhaledn/protolint/internal/osutil"
+	"github.com/maramkhaledn/protolint/mcp"
 )
 
 const (

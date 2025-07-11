@@ -1,13 +1,13 @@
 package lint
 
 import (
-	"github.com/yoheimuta/protolint/internal/addon/plugin/shared"
-	"github.com/yoheimuta/protolint/internal/cmd/subcmds"
-	"github.com/yoheimuta/protolint/internal/linter/config"
-	"github.com/yoheimuta/protolint/internal/linter/file"
-	"github.com/yoheimuta/protolint/internal/linter/report"
-	"github.com/yoheimuta/protolint/linter/autodisable"
-	"github.com/yoheimuta/protolint/linter/rule"
+	"github.com/maramkhaledn/protolint/internal/addon/plugin/shared"
+	"github.com/maramkhaledn/protolint/internal/cmd/subcmds"
+	"github.com/maramkhaledn/protolint/internal/linter/config"
+	"github.com/maramkhaledn/protolint/internal/linter/file"
+	"github.com/maramkhaledn/protolint/internal/linter/report"
+	"github.com/maramkhaledn/protolint/linter/autodisable"
+	"github.com/maramkhaledn/protolint/linter/rule"
 )
 
 // CmdLintConfig is a config for lint command.

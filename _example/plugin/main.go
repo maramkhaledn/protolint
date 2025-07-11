@@ -3,10 +3,10 @@ package main
 import (
 	"flag"
 
-	"github.com/yoheimuta/protolint/_example/plugin/customrules"
-	"github.com/yoheimuta/protolint/internal/addon/rules"
-	"github.com/yoheimuta/protolint/linter/rule"
-	"github.com/yoheimuta/protolint/plugin"
+	"github.com/maramkhaledn/protolint/_example/plugin/customrules"
+	"github.com/maramkhaledn/protolint/internal/addon/rules"
+	"github.com/maramkhaledn/protolint/linter/rule"
+	"github.com/maramkhaledn/protolint/plugin"
 )
 
 var (

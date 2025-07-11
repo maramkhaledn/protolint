@@ -3,8 +3,8 @@ package lib
 import (
 	"io"
 
-	"github.com/yoheimuta/protolint/internal/cmd"
-	"github.com/yoheimuta/protolint/internal/libinternal"
+	"github.com/maramkhaledn/protolint/internal/cmd"
+	"github.com/maramkhaledn/protolint/internal/libinternal"
 )
 
 var (

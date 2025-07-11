@@ -10,12 +10,12 @@ import (
 
 	"github.com/yoheimuta/go-protoparser/v4/parser"
 
-	"github.com/yoheimuta/protolint/internal/linter/config"
+	"github.com/maramkhaledn/protolint/internal/linter/config"
 
-	"github.com/yoheimuta/protolint/internal/linter"
-	"github.com/yoheimuta/protolint/internal/linter/file"
-	"github.com/yoheimuta/protolint/internal/osutil"
-	"github.com/yoheimuta/protolint/linter/report"
+	"github.com/maramkhaledn/protolint/internal/linter"
+	"github.com/maramkhaledn/protolint/internal/linter/file"
+	"github.com/maramkhaledn/protolint/internal/osutil"
+	"github.com/maramkhaledn/protolint/linter/report"
 )
 
 // CmdLint is a lint command.

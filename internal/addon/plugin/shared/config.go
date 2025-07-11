@@ -3,7 +3,7 @@ package shared
 import (
 	"context"
 
-	"github.com/yoheimuta/protolint/internal/addon/plugin/proto"
+	"github.com/maramkhaledn/protolint/internal/addon/plugin/proto"
 
 	"github.com/hashicorp/go-plugin"
 	"google.golang.org/grpc"
