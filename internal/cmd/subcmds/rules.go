@@ -178,6 +178,9 @@ func newAllInternalRules(
 			rpcsHaveComment.Severity,
 			rpcsHaveComment.ShouldFollowGolangStyle,
 		),
+		rules.NewRPCVersioningRule(
+			option.RPCVersioning.Severity,
+		),
 		rules.NewServiceNamesUpperCamelCaseRule(
 			option.ServiceNamesUpperCamelCase.Severity,
 			fixMode,
@@ -191,9 +194,6 @@ func newAllInternalRules(
 			option.ServicesHaveComment.Severity,
 			servicesHaveComment.ShouldFollowGolangStyle,
 		),
-		// Add your custom rule
-		rules.NewRPCVersioningRule(
-			option.RPCVersioning.Severity,
-		),
+
 	}
 }
