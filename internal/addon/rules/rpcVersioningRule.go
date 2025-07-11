@@ -66,29 +66,26 @@ func (v *rpcVersioningVisitor) VisitRPC(rpc *parser.RPC) bool {
 }
 
 func extractURLFromOption(constant interface{}) string {
-    // Check if the constant is a map or structured data
-    if constantMap, ok := constant.(map[string]interface{}); ok {
-        // Extract the URL from known keys like "get", "patch", "post", "put", "delete"
+    // 1) map[string]interface{} case
+    if m, ok := constant.(map[string]interface{}); ok {
         for _, key := range []string{"get", "patch", "post", "put", "delete"} {
-            if url, exists := constantMap[key]; exists {
-                if urlStr, ok := url.(string); ok {
-                    return urlStr
+            if v, exists := m[key]; exists {
+                if s, ok := v.(string); ok {
+                    return s
                 }
             }
         }
     }
-    // Fallback if the constant is a simple string
-    if str, ok := constant.(string); ok {
-        return str
-    }
-    // Handle multi-line structured data (e.g., "{patch:\"/v2/messages/{message_id}\" body:\"*\"}")
-    if constantStr, ok := constant.(string); ok {
-        // Use regex to extract the URL after the first double quotation mark
-        regex := regexp.MustCompile(`(get|patch|post|put|delete):"([^"]+)"`)
-        matches := regex.FindStringSubmatch(constantStr)
-        if len(matches) > 2 {
-            return matches[2] // Extract the URL part
+    // 2) any string case (including "{patch:\"/v2/...\" body:\"*\"}")
+    if s, ok := constant.(string); ok {
+        // try structured-map regex first
+        // (?m) allows ^,$ to match per line if needed
+        re := regexp.MustCompile(`(?m)(get|patch|post|put|delete):"([^"]+)"`)
+        if m := re.FindStringSubmatch(s); len(m) > 2 {
+            return m[2]
         }
+        // fallback to entire string
+        return s
     }
     return ""
 }
