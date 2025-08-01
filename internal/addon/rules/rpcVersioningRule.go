@@ -10,8 +10,7 @@ import (
 )
 
 // Define the regex for versioning
-var versioningRegex = regexp.MustCompile(`^/v\d+`)
-
+var versioningRegex = regexp.MustCompile(`^(\/v\d+|\/public\/v\d+)(\/.*)?$`)
 // RPCVersioningRule verifies that all RPC URLs have a prefix /v{num}.
 type RPCVersioningRule struct {
     RuleWithSeverity
@@ -31,7 +30,7 @@ func (r RPCVersioningRule) ID() string {
 
 // Purpose returns the purpose of this rule.
 func (r RPCVersioningRule) Purpose() string {
-    return "Verifies that all RPC URLs have a prefix /v{num}."
+    return "Verifies that all RPC URLs have a prefix /v{num} or /public/v{num}"
 }
 
 // IsOfficial decides whether or not this rule belongs to the official guide.
@@ -58,7 +57,7 @@ func (v *rpcVersioningVisitor) VisitRPC(rpc *parser.RPC) bool {
         if option.OptionName == "(google.api.http)" { // Use the correct field name
             optionURL := extractURLFromOption(option.Constant)
             if optionURL != "" && !versioningRegex.MatchString(optionURL) {
-                v.AddFailuref(option.Meta.Pos, `Option URL %q in RPC %q should have a prefix of the form "/v{num}"`, optionURL, rpc.RPCName)
+                v.AddFailuref(option.Meta.Pos, `Option URL %q in RPC %q should have a prefix of the form "/v{num}" or "/public/v{num}"`, optionURL, rpc.RPCName)
             }
         }
     }
