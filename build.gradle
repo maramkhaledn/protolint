@@ -3,12 +3,12 @@ plugins {
     id 'signing'
 }
 
-group = 'io.github.yoheimuta'
+group = 'io.github.maramkhaledn'
 
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId = 'io.github.yoheimuta'
+            groupId = 'io.github.maramkhaledn'
             artifactId = rootProject.name
             version = System.getenv("GITHUB_REF_NAME")
             // Strip "v" from version number
@@ -28,14 +28,14 @@ publishing {
                 }
                 developers {
                     developer {
-                        id = 'yoheimuta'
-                        name = 'yohei yoshimuta'
-                        email = 'yoheimuta@gmail.com'
+                        id = 'maramkhaledn'
+                        name = 'maram khaled'
+                        email = 'maramkhaledn@gmail.com'
                     }
                 }
                 scm {
-                    connection = 'scm:git:git@github.com:yoheimuta/protolint.git'
-                    developerConnection = 'scm:git:git@github.com:yoheimuta/protolint.git'
+                    connection = 'scm:git:git@github.com:maramkhaledn/protolint.git'
+                    developerConnection = 'scm:git:git@github.com:maramkhaledn/protolint.git'
                     url = 'https://github.com/maramkhaledn/protolint'
                 }
             }
