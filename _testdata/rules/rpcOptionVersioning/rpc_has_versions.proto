@@ -22,4 +22,22 @@ service VersionedApi {
       body: "*"
     };
   };
+  rpc  ValidPublicRPC    (SearchRequest3) returns (SearchResponse3) {
+    option (google.api.http) = {
+      patch: "/public/v1/messages/{message_id}"
+      body: "*"
+    };
+  };
+  rpc  NonValidPublicRPC    (SearchRequest3) returns (SearchResponse3) {
+    option (google.api.http) = {
+      patch: "/public/messages/{message_id}"
+      body: "*"
+    };
+  };
+  rpc  NonValidPublicRPCMissingVersionNumber    (SearchRequest3) returns (SearchResponse3) {
+    option (google.api.http) = {
+      patch: "/public/v/messages/{message_id}"
+      body: "*"
+    };
+  };
 };

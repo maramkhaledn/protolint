@@ -4,7 +4,7 @@ import (
     "reflect"
     "testing"
 
-    "github.com//go-protoparser/v4/parser"
+    "github.com/yoheimuta/go-protoparser/v4/parser"
     "github.com/yoheimuta/go-protoparser/v4/parser/meta"
     "github.com/maramkhaledn/protolint/internal/addon/rules"
     "github.com/maramkhaledn/protolint/linter/rule"
@@ -12,8 +12,8 @@ import (
 
 func TestRPCVersioningRule_Apply(t *testing.T) {
     tests := []struct {
-        name     string
-        inputProto *parser.Proto
+        name         string
+        inputProto   *parser.Proto
         wantFailures []string // Expected failure messages
     }{
         {
@@ -28,6 +28,27 @@ func TestRPCVersioningRule_Apply(t *testing.T) {
                                     {
                                         OptionName: "(google.api.http)",
                                         Constant:   "/v1/users",
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+            wantFailures: nil,
+        },
+        {
+            name: "no failures for valid RPC URLs with /public/v{num} prefix",
+            inputProto: &parser.Proto{
+                ProtoBody: []parser.Visitee{
+                    &parser.Service{
+                        ServiceBody: []parser.Visitee{
+                            &parser.RPC{
+                                RPCName: "GetPublicUser",
+                                Options: []*parser.Option{
+                                    {
+                                        OptionName: "(google.api.http)",
+                                        Constant:   "/public/v1/users",
                                     },
                                 },
                             },
@@ -64,7 +85,37 @@ func TestRPCVersioningRule_Apply(t *testing.T) {
                 },
             },
             wantFailures: []string{
-                `Option URL "/users" in RPC "GetUser" should have a prefix of the form "/v{num}"`,
+                `Option URL "/users" in RPC "GetUser" should have a prefix of the form "/v{num}" or "/public/v{num}"`,
+            },
+        },
+        {
+            name: "failures for RPC URLs with /public prefix only",
+            inputProto: &parser.Proto{
+                ProtoBody: []parser.Visitee{
+                    &parser.Service{
+                        ServiceBody: []parser.Visitee{
+                            &parser.RPC{
+                                RPCName: "GetPublicUser",
+                                Options: []*parser.Option{
+                                    {
+                                        OptionName: "(google.api.http)",
+                                        Constant:   "/public/users",
+                                    },
+                                },
+                                Meta: meta.Meta{
+                                    Pos: meta.Position{
+                                        Filename: "example.proto",
+                                        Line:     15,
+                                        Column:   5,
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+            wantFailures: []string{
+                `Option URL "/public/users" in RPC "GetPublicUser" should have a prefix of the form "/v{num}" or "/public/v{num}"`,
             },
         },
     }
