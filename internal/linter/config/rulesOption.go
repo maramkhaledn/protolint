@@ -20,6 +20,7 @@ type RulesOption struct {
 	EnumFieldsHaveComment           EnumFieldsHaveCommentOption           `yaml:"enum_fields_have_comment" json:"enum_fields_have_comment" toml:"enum_fields_have_comment"`
 	SyntaxConsistent                SyntaxConsistentOption                `yaml:"syntax_consistent" json:"syntax_consistent" toml:"syntax_consistent"`
 	RepeatedFieldNamesPluralized    RepeatedFieldNamesPluralizedOption    `yaml:"repeated_field_names_pluralized" json:"repeated_field_names_pluralized" toml:"repeated_field_names_pluralized"`
+	MessageNamesHaveResponseOrRequestSuffix MessageNamesHaveResponseOrRequestSuffixOption `yaml:"message_names_have_response_or_request_suffix" json:"message_names_have_response_or_request_suffix" toml:"message_names_have_response_or_request_suffix"`
 	EnumFieldNamesPrefix            CustomizableSeverityOption            `yaml:"enum_field_names_prefix" json:"enum_field_names_prefix" toml:"enum_field_names_prefix"`
 	EnumFieldNamesUpperSnakeCase    CustomizableSeverityOption            `yaml:"enum_field_names_upper_snake_case" json:"enum_field_names_upper_snake_case" toml:"enum_field_names_upper_snake_case"`
 	EnumNamesUpperCamelCase         CustomizableSeverityOption            `yaml:"enum_names_upper_camel_case" json:"enum_names_upper_camel_case" toml:"enum_names_upper_camel_case"`
