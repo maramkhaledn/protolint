@@ -161,6 +161,9 @@ func newAllInternalRules(
 			messageNamesExcludePrepositions.Prepositions,
 			messageNamesExcludePrepositions.Excludes,
 		),
+			rules.NewMessageNamesHaveResponseOrRequestSuffix(
+			option.MessageNamesHaveResponseOrRequestSuffix.Severity,
+		),
 		rules.NewMessagesHaveCommentRule(
 			messagesHaveComment.Severity,
 			messagesHaveComment.ShouldFollowGolangStyle,

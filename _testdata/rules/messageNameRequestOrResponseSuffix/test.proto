@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package myapp;
+
+service TestService {
+  rpc GetBook(GetBookRequest) returns (GetBookResponse);
+  rpc GetUser(GetUserRequest2) returns (GetUserResponse);
+  rpc BadExample(BadExampleReq) returns (BadExampleResp);
+}
