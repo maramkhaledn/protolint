@@ -1,9 +1,10 @@
 syntax = "proto3";
 
 package myapp;
+import "google/protobuf/empty.proto";
 
 service TestService {
-  rpc GetBook(GetBookRequest) returns (GetBookResponse);
+  rpc GetBook(GetBookRequest) returns (google.protobuf.Empty);
   rpc GetUser(GetUserRequest2) returns (GetUserResponse);
   rpc BadExample(BadExampleReq) returns (BadExampleResp);
 }

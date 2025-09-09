@@ -63,14 +63,24 @@ func (v *messageNamesHaveResponseOrRequestSuffixVisitor) VisitRPC(rpc *parser.RP
 	}
 
 	// Check request type
-	if !hasRequestSuffix(requestType) {
+	if !hasRequestSuffix(requestType) && !isIgnoredType(requestType) {
 		v.AddFailuref(rpc.Meta.Pos, "RPC request message name %q should end with 'Request'", requestType)
 	}
 	// Check response type
-	if !hasResponseSuffix(responseType) {
+	if !hasResponseSuffix(responseType) && !isIgnoredType(responseType) {
 		v.AddFailuref(rpc.Meta.Pos, "RPC response message name %q should end with 'Response'", responseType)
 	}
 	return true
+}
+
+var ignoredTypes = map[string]struct{}{
+    "google.protobuf.Empty": {},
+    "google.protobuf.Any":   {},
+}
+
+func isIgnoredType(name string) bool {
+    _, ok := ignoredTypes[name]
+    return ok
 }
 
 func hasResponseSuffix(name string) bool {
