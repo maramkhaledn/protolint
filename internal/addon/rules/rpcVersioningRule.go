@@ -10,7 +10,8 @@ import (
 )
 
 // Define the regex for versioning
-var versioningRegex = regexp.MustCompile(`^(\/v\d+|\/public\/v\d+)(\/.*)?$`)
+var versioningRegex = regexp.MustCompile(`^(\/v\d+(?:\.\d+)*|\/public\/v\d+(?:\.\d+)*)(\/.*)?$`)
+
 // RPCVersioningRule verifies that all RPC URLs have a prefix /v{num}.
 type RPCVersioningRule struct {
     RuleWithSeverity
