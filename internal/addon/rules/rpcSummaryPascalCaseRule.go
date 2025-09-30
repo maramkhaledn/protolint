@@ -62,14 +62,6 @@ func (v *rpcSummaryPascalCaseVisitor) VisitRPC(rpc *parser.RPC) bool {
 }
 
 func extractSummaryFromOption(constant interface{}) string {
-    // First try map format (structured)
-    if m, ok := constant.(map[string]interface{}); ok {
-        if summary, exists := m["summary"]; exists {
-            if s, ok := summary.(string); ok {
-                return s
-            }
-        }
-    }
     
     if s, ok := constant.(string); ok {
 
