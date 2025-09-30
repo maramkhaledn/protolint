@@ -79,20 +79,13 @@ func isPascalCase(s string) bool {
 	if len(s) == 0 {
 		return false
 	}
-	capitalFound := 0
 	for i, r := range s {
 		if i == 0 && unicode.IsLower(r) {
 			return false
 		}
-		if unicode.IsUpper(r) {
-			capitalFound++
-		}
 		if !unicode.IsLetter(r) {
 			return false 
 		}
-	}
-	if capitalFound < 2{
-		return false
 	}
 	
 	return true
