@@ -184,6 +184,9 @@ func newAllInternalRules(
 		rules.NewRPCVersioningRule(
 			option.RPCVersioning.Severity,
 		),
+		rules.NewRPCSummaryPascalCaseRule(
+			option.RPCSummaryPascalCase.Severity,
+		),
 		rules.NewServiceNamesUpperCamelCaseRule(
 			option.ServiceNamesUpperCamelCase.Severity,
 			fixMode,
