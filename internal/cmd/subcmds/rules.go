@@ -38,6 +38,7 @@ func newAllInternalRules(
 	fileNamesLowerSnakeCase := option.FileNamesLowerSnakeCase
 	indent := option.Indent
 	maxLineLength := option.MaxLineLength
+	maxRpcSummaryLength := option.MaxRpcSummaryLength
 	enumFieldNamesZeroValueEndWith := option.EnumFieldNamesZeroValueEndWith
 	serviceNamesEndWith := option.ServiceNamesEndWith
 	fieldNamesExcludePrepositions := option.FieldNamesExcludePrepositions
@@ -82,6 +83,10 @@ func newAllInternalRules(
 			maxLineLength.Severity,
 			maxLineLength.MaxChars,
 			maxLineLength.TabChars,
+		),
+		rules.NewMaxRpcSummaryLengthRule(
+			maxRpcSummaryLength.Severity,
+			maxRpcSummaryLength.MaxChars,
 		),
 		rules.NewPackageNameLowerCaseRule(
 			option.PackageNameLowerCase.Severity,

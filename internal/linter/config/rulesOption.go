@@ -35,4 +35,5 @@ type RulesOption struct {
 	ServiceNamesUpperCamelCase      CustomizableSeverityOption            `yaml:"service_names_upper_caml_case" json:"service_names_upper_caml_case" toml:"service_names_upper_caml_case"`
 	RPCVersioning                   CustomizableSeverityOption            `yaml:"rpc_versioning" json:"rpc_versioning" toml:"rpc_versioning"`
 	RPCSummaryPascalCase			CustomizableSeverityOption            `yaml:"rpc_summary_pascal_case" json:"rpc_summary_pascal_case" toml:"rpc_summary_pascal_case"`
+	MaxRpcSummaryLength               MaxRpcSummaryLengthOption                 `yaml:"max_rpc_summary_length" json:"max_rpc_summary_length" toml:"max_rpc_summary_length"`
 }

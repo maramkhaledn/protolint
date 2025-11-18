@@ -62,6 +62,7 @@ lint:
       - RPC_NAMES_CASE
       - FILE_HAS_COMMENT
       - QUOTE_CONSISTENT
+      - MAX_RPC_SUMMARY_LENGTH
 
     # The specific linters to remove.
     remove:
@@ -75,6 +76,9 @@ lint:
       max_chars: 80
       # Specifies the character count for tab characters
       tab_chars: 2
+    
+    max_rpc_summary_length:
+      max_chars: 25
 
     # INDENT rule option.
     indent:
