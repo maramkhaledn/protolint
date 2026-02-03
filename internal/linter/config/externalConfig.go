@@ -2,11 +2,12 @@ package config
 
 // Lint represents the lint configuration.
 type Lint struct {
-	Ignores     Ignores
-	Files       Files
-	Directories Directories
-	Rules       Rules
-	RulesOption RulesOption `yaml:"rules_option" json:"rules_option" toml:"rules_option"`
+	Ignores           Ignores
+	Files             Files
+	Directories       Directories
+	Rules             Rules
+	RulesOption       RulesOption `yaml:"rules_option" json:"rules_option" toml:"rules_option"`
+	DisallowDisabling bool        `yaml:"disallow_disabling" json:"disallow_disabling" toml:"disallow_disabling"`
 }
 
 // ExternalConfig represents the external configuration.

@@ -413,3 +413,133 @@ func TestInterpreter_CallEachIfValid(t *testing.T) {
 		})
 	}
 }
+
+func TestInterpreter_Interpret_DisallowDisabling(t *testing.T) {
+	// Enable disallow disabling for this test
+	disablerule.SetDisallowDisabling(true)
+	defer disablerule.SetDisallowDisabling(false)
+
+	tests := []struct {
+		name                string
+		inputRuleID         string
+		inputComments       []*parser.Comment
+		inputInlineComments []*parser.Comment
+		wantIsDisabled      bool
+	}{
+		{
+			name:        "disable:next comment is ignored when disallowDisabling is true",
+			inputRuleID: "ENUM_FIELD_NAMES_UPPER_SNAKE_CASE",
+			inputComments: []*parser.Comment{
+				{
+					Raw: `// protolint:disable:next ENUM_FIELD_NAMES_UPPER_SNAKE_CASE`,
+				},
+			},
+			wantIsDisabled: false,
+		},
+		{
+			name:        "disable:this comment is ignored when disallowDisabling is true",
+			inputRuleID: "SERVICE_NAMES_UPPER_CAMEL_CASE",
+			inputInlineComments: []*parser.Comment{
+				{
+					Raw: `// protolint:disable:this SERVICE_NAMES_UPPER_CAMEL_CASE`,
+				},
+			},
+			wantIsDisabled: false,
+		},
+		{
+			name:        "disable comment is ignored when disallowDisabling is true",
+			inputRuleID: "SERVICE_NAMES_UPPER_CAMEL_CASE",
+			inputComments: []*parser.Comment{
+				{
+					Raw: `// protolint:disable SERVICE_NAMES_UPPER_CAMEL_CASE`,
+				},
+			},
+			wantIsDisabled: false,
+		},
+	}
+
+	for _, test := range tests {
+		test := test
+		t.Run(test.name, func(t *testing.T) {
+			interpreter := disablerule.NewInterpreter(test.inputRuleID)
+			got := interpreter.Interpret(test.inputComments, test.inputInlineComments...)
+			if got != test.wantIsDisabled {
+				t.Errorf("got %v, but want %v", got, test.wantIsDisabled)
+			}
+		})
+	}
+}
+
+func TestInterpreter_CallEachIfValid_DisallowDisabling(t *testing.T) {
+	// Enable disallow disabling for this test
+	disablerule.SetDisallowDisabling(true)
+	defer disablerule.SetDisallowDisabling(false)
+
+	type outputType struct {
+		index int
+		line  string
+	}
+	tests := []struct {
+		name            string
+		inputRuleID     string
+		inputLines      []string
+		wantOutputLines []outputType
+	}{
+		{
+			name:        "all lines are returned when disallowDisabling is true, even with disable:next",
+			inputRuleID: "MAX_LINE_LENGTH",
+			inputLines: []string{
+				`enum enumAllowingAlias {`,
+				`// protolint:disable:next MAX_LINE_LENGTH`,
+				`option allow_alias = true;`,
+				`}`,
+			},
+			wantOutputLines: []outputType{
+				{index: 0, line: `enum enumAllowingAlias {`},
+				{index: 1, line: `// protolint:disable:next MAX_LINE_LENGTH`},
+				{index: 2, line: `option allow_alias = true;`},
+				{index: 3, line: `}`},
+			},
+		},
+		{
+			name:        "all lines are returned when disallowDisabling is true, even with disable/enable",
+			inputRuleID: "MAX_LINE_LENGTH",
+			inputLines: []string{
+				`enum enumAllowingAlias {`,
+				`// protolint:disable MAX_LINE_LENGTH`,
+				`option allow_alias = true;`,
+				`UNKNOWN = 0;`,
+				`// protolint:enable MAX_LINE_LENGTH`,
+				`STARTED = 1;`,
+				`}`,
+			},
+			wantOutputLines: []outputType{
+				{index: 0, line: `enum enumAllowingAlias {`},
+				{index: 1, line: `// protolint:disable MAX_LINE_LENGTH`},
+				{index: 2, line: `option allow_alias = true;`},
+				{index: 3, line: `UNKNOWN = 0;`},
+				{index: 4, line: `// protolint:enable MAX_LINE_LENGTH`},
+				{index: 5, line: `STARTED = 1;`},
+				{index: 6, line: `}`},
+			},
+		},
+	}
+
+	for _, test := range tests {
+		test := test
+		t.Run(test.name, func(t *testing.T) {
+			interpreter := disablerule.NewInterpreter(test.inputRuleID)
+
+			var got []outputType
+			interpreter.CallEachIfValid(test.inputLines, func(index int, line string) {
+				got = append(got, outputType{
+					index: index,
+					line:  line,
+				})
+			})
+			if !reflect.DeepEqual(got, test.wantOutputLines) {
+				t.Errorf("got %v, but want %v", got, test.wantOutputLines)
+			}
+		})
+	}
+}
