@@ -36,4 +36,5 @@ type RulesOption struct {
 	RPCVersioning                   CustomizableSeverityOption            `yaml:"rpc_versioning" json:"rpc_versioning" toml:"rpc_versioning"`
 	RPCSummaryPascalCase			CustomizableSeverityOption            `yaml:"rpc_summary_pascal_case" json:"rpc_summary_pascal_case" toml:"rpc_summary_pascal_case"`
 	MaxRpcSummaryLength               MaxRpcSummaryLengthOption                 `yaml:"max_rpc_summary_length" json:"max_rpc_summary_length" toml:"max_rpc_summary_length"`
+	FieldNumbersOrderAscending      CustomizableSeverityOption            `yaml:"field_numbers_order_ascending" json:"field_numbers_order_ascending" toml:"field_numbers_order_ascending"`
 }
