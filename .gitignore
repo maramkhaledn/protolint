@@ -28,3 +28,4 @@ atlassian-ide-plugin.xml
 /bdist/js/node_modules/
 /bdist/js/node_modules/*.tgz
 
+protolint

@@ -2,6 +2,16 @@ package disablerule
 
 import "github.com/yoheimuta/go-protoparser/v4/parser"
 
+// disallowDisabling is a package-level flag that, when true, prevents any
+// protolint:disable comments from suppressing rules.
+var disallowDisabling bool
+
+// SetDisallowDisabling sets whether disable comments should be ignored.
+// When set to true, all protolint:disable comments will be silently ignored.
+func SetDisallowDisabling(disallow bool) {
+	disallowDisabling = disallow
+}
+
 // Interpreter represents an interpreter for disable rule comments.
 type Interpreter struct {
 	ruleID     string
@@ -22,6 +32,10 @@ func (i *Interpreter) Interpret(
 	comments []*parser.Comment,
 	inlines ...*parser.Comment,
 ) (isDisabled bool) {
+	// If disallowDisabling is set, ignore all disable comments
+	if disallowDisabling {
+		return false
+	}
 	cmds := newCommands(comments)
 	inlineCmds := newCommands(inlines)
 	allCmds := append(append([]command{}, cmds...), inlineCmds...)
@@ -36,6 +50,14 @@ func (i *Interpreter) CallEachIfValid(
 	lines []string,
 	f func(index int, line string),
 ) {
+	// If disallowDisabling is set, call function for every line
+	if disallowDisabling {
+		for index, line := range lines {
+			f(index, line)
+		}
+		return
+	}
+
 	shouldSkip := false
 
 	for index, line := range lines {

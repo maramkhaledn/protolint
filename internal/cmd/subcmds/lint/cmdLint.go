@@ -15,6 +15,7 @@ import (
 	"github.com/maramkhaledn/protolint/internal/linter"
 	"github.com/maramkhaledn/protolint/internal/linter/file"
 	"github.com/maramkhaledn/protolint/internal/osutil"
+	"github.com/maramkhaledn/protolint/linter/disablerule"
 	"github.com/maramkhaledn/protolint/linter/report"
 )
 
@@ -94,6 +95,9 @@ func (c *CmdLint) Run() osutil.ExitCode {
 }
 
 func (c *CmdLint) run() ([]report.Failure, error) {
+	// Set the disallow disabling flag before running any rules
+	disablerule.SetDisallowDisabling(c.config.external.Lint.DisallowDisabling)
+
 	var allFailures []report.Failure
 
 	for _, f := range c.protoFiles {
