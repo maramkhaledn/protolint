@@ -205,6 +205,8 @@ func newAllInternalRules(
 			option.ServicesHaveComment.Severity,
 			servicesHaveComment.ShouldFollowGolangStyle,
 		),
-
+		rules.NewSwaggerRateLimitRule(
+			option.SwaggerRateLimit.Severity,
+		),
 	}
 }
