@@ -162,13 +162,24 @@ repos:
     hooks:
       - id: protolint
 ```
-or alternatively use this to run protolint with Docker:
+
+For Docker-based execution, use the `protolint-docker` hook:
+```yaml
+repos:
+  - repo: https://github.com/yoheimuta/protolint
+    hooks:
+      - id: protolint-docker # Uses yoheimuta/protolint:latest by default
+```
+
+**Important:** For Docker hooks, the `rev` parameter is meaningless for versioning per [pre-commit's design](https://pre-commit.com/#docker_image). To pin to a specific protolint version, specify the Docker image tag in the `entry`:
+
 ```yaml
 repos:
   - repo: https://github.com/maramkhaledn/protolint
     rev: <version> # Select a release here like v0.44.0
     hooks:
       - id: protolint-docker
+        entry: yoheimuta/protolint:v0.55.6 lint # Pin to specific version
 ```
 
 ## Editor Integration
@@ -176,6 +187,7 @@ repos:
 Visual Studio Code
 
 - [vscode-protolint](https://github.com/plexsystems/vscode-protolint)
+- [protolint-vscode](https://marketplace.visualstudio.com/items?itemName=astryna-tools.protolint-vscode)
 
 JetBrains IntelliJ IDEA, GoLand, WebStorm, PHPStorm, PyCharm...
 
@@ -278,12 +290,12 @@ func main() {
     args := []string{"-config_path", "path/to/your_protolint.yaml", "."}
     var stdout bytes.Buffer
     var stderr bytes.Buffer
-    
+
     err := lib.Lint(args, &stdout, &stderr)
     if err != nil {
         // Handle error
     }
-    
+
     // Process output in stdout and stderr
 }
 ```
@@ -555,7 +567,7 @@ I wrote an article comparing various Protocol Buffer Linters, including protolin
 
 - [go-protoparser](https://github.com/maramkhaledn/go-protoparser)
 
-## Development 
+## Development
 
 ### Release
 

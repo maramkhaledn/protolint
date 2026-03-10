@@ -208,5 +208,9 @@ func newAllInternalRules(
 		rules.NewSwaggerRateLimitRule(
 			option.SwaggerRateLimit.Severity,
 		),
+		rules.NewFieldNumbersOrderAscendingRule(
+			option.FieldNumbersOrderAscending.Severity,
+		),
+
 	}
 }

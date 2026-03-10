@@ -36,7 +36,7 @@ jobs:
         uses: goreleaser/goreleaser-action@v6
         with:
           distribution: goreleaser
-          version: latest
+          version: v2.9.0
           args: release --clean
         env:
           # You can't set the default GITHUB_TOKEN because of 403 Resource not accessible to the relevant homebrew repository
@@ -57,3 +57,25 @@ jobs:
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
           ORG_GRADLE_PROJECT_signingKey: ${{ secrets.ORG_GRADLE_PROJECT_SIGNINGKEY }}
           ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.ORG_GRADLE_PROJECT_SIGNINGPASSWORD }}
+      - name: Upload to Central Publisher Portal
+        run: |
+          echo "Uploading to Central Publisher Portal..."
+          response=$(curl -s -w "%{http_code}" -X POST \
+            "https://ossrh-staging-api.central.sonatype.com/manual/upload/defaultRepository/io.github.yoheimuta?publishing_type=automatic" \
+            -u "${{ secrets.OSSRH_USERNAME }}:${{ secrets.OSSRH_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{}')
+
+          http_code="${response: -3}"
+          response_body="${response%???}"
+
+          echo "HTTP Status: $http_code"
+          echo "Response: $response_body"
+
+          if [ "$http_code" -ne 200 ] && [ "$http_code" -ne 201 ] && [ "$http_code" -ne 204 ]; then
+            echo "Upload failed with HTTP $http_code"
+            echo "Response: $response_body"
+            exit 1
+          else
+            echo "Upload successful!"
+          fi
