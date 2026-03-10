@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+// Valid: openapiv2_swagger option with a complete rate_limit field.
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+    info: {
+        title: "My API"
+        version: "1.0"
+    }
+    rate_limit: {
+        max_requests: 1500
+        time_window: { seconds: 60 }
+        burst: 1500
+        burst_time_window: { seconds: 60 }
+    }
+};
+
+// Invalid: openapiv2_swagger option missing the rate_limit field entirely.
+// option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+//     info: {
+//         title: "My API"
+//         version: "1.0"
+//     }
+// };
+
+// Invalid: rate_limit present but missing max_requests.
+// option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+//     rate_limit: {
+//         time_window: { seconds: 60 }
+//         burst: 1500
+//         burst_time_window: { seconds: 60 }
+//     }
+// };
+
+// Invalid: rate_limit present but missing time_window.seconds.
+// option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+//     rate_limit: {
+//         max_requests: 1500
+//         time_window: {}
+//         burst: 1500
+//         burst_time_window: { seconds: 60 }
+//     }
+// };
+
+// Invalid: rate_limit present but missing burst.
+// option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+//     rate_limit: {
+//         max_requests: 1500
+//         time_window: { seconds: 60 }
+//         burst_time_window: { seconds: 60 }
+//     }
+// };
+
+// Invalid: rate_limit present but missing burst_time_window.seconds.
+// option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+//     rate_limit: {
+//         max_requests: 1500
+//         time_window: { seconds: 60 }
+//         burst: 1500
+//         burst_time_window: {}
+//     }
+// };
+
+service ExampleService {
+  rpc GetItem (GetItemRequest) returns (GetItemResponse) {
+    option (google.api.http) = {
+      get: "/v1/items/{id}"
+    };
+  };
+}
+
+message GetItemRequest {
+  string id = 1;
+}
+
+message GetItemResponse {
+  string name = 1;
+}
