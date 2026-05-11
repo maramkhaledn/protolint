@@ -79,7 +79,7 @@ lint:
       tab_chars: 2
     
     max_rpc_summary_length:
-      max_chars: 25
+      max_chars: 30
 
     # INDENT rule option.
     indent:
