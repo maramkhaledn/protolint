@@ -189,6 +189,9 @@ func newAllInternalRules(
 		rules.NewRPCVersioningRule(
 			option.RPCVersioning.Severity,
 		),
+		rules.NewRPCAllowPostAndGetRule(
+			option.RPCAllowPostAndGet.Severity,
+		),
 		rules.NewRPCSummaryPascalCaseRule(
 			option.RPCSummaryPascalCase.Severity,
 		),

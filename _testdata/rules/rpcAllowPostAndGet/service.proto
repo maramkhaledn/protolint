@@ -1,0 +1,83 @@
+syntax = "proto3";
+
+service ExampleService {
+  // Valid: GET is allowed.
+  rpc GetItem (GetItemRequest) returns (GetItemResponse) {
+    option (google.api.http) = {
+      get: "/v1/items/{id}"
+    };
+  };
+
+  // Valid: POST is allowed.
+  rpc CreateItem (CreateItemRequest) returns (CreateItemResponse) {
+    option (google.api.http) = {
+      post: "/v1/items"
+      body: "*"
+    };
+  };
+
+  // Invalid: PUT is not allowed (only GET and POST are).
+  rpc ReplaceItem (ReplaceItemRequest) returns (ReplaceItemResponse) {
+    option (google.api.http) = {
+      put: "/v1/items/{id}"
+      body: "*"
+    };
+  };
+
+  // Invalid: PATCH is not allowed (only GET and POST are).
+  rpc UpdateItem (UpdateItemRequest) returns (UpdateItemResponse) {
+    option (google.api.http) = {
+      patch: "/v1/items/{id}"
+      body: "*"
+    };
+  };
+
+  // Invalid: DELETE is not allowed (only GET and POST are).
+  rpc DeleteItem (DeleteItemRequest) returns (DeleteItemResponse) {
+    option (google.api.http) = {
+      delete: "/v1/items/{id}"
+    };
+  };
+}
+
+message GetItemRequest {
+  string id = 1;
+}
+
+message GetItemResponse {
+  string name = 1;
+}
+
+message CreateItemRequest {
+  string name = 1;
+}
+
+message CreateItemResponse {
+  string id = 1;
+}
+
+message ReplaceItemRequest {
+  string id = 1;
+  string name = 2;
+}
+
+message ReplaceItemResponse {
+  string id = 1;
+}
+
+message UpdateItemRequest {
+  string id = 1;
+  string name = 2;
+}
+
+message UpdateItemResponse {
+  string id = 1;
+}
+
+message DeleteItemRequest {
+  string id = 1;
+}
+
+message DeleteItemResponse {
+  bool success = 1;
+}
