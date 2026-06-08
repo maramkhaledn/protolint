@@ -211,6 +211,9 @@ func newAllInternalRules(
 		rules.NewSwaggerRateLimitRule(
 			option.SwaggerRateLimit.Severity,
 		),
+		rules.NewSwaggerBasePathRule(
+			option.SwaggerBasePath.Severity,
+		),
 		rules.NewFieldNumbersOrderAscendingRule(
 			option.FieldNumbersOrderAscending.Severity,
 		),
