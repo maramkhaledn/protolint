@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+// Invalid: base_path contains underscores; it must be dash-separated.
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+    info: {
+        title: "My API"
+        version: "1.0"
+    }
+    base_path: "/my_api/v1"
+};
+
+// Valid: base_path is dash-separated.
+// option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+//     info: {
+//         title: "My API"
+//         version: "1.0"
+//     }
+//     base_path: "/my-api/v1"
+// };
+
+service ExampleService {
+  rpc GetItem (GetItemRequest) returns (GetItemResponse) {
+    option (google.api.http) = {
+      get: "/v1/items/{id}"
+    };
+  };
+}
+
+message GetItemRequest {
+  string id = 1;
+}
+
+message GetItemResponse {
+  string name = 1;
+}
