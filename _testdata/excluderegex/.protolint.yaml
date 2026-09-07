@@ -1,0 +1,12 @@
+---
+lint:
+  files:
+    exclude_regex:
+      - .*_generated\.proto$
+  directories:
+    exclude_regex:
+      - ^proto/generated/
+  rules:
+    no_default: true
+    add:
+      - FIELD_NAMES_LOWER_SNAKE_CASE
