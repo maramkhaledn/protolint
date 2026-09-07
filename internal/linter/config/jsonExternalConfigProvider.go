@@ -32,6 +32,9 @@ func (j jsonConfigLoader) LoadExternalConfig() (*ExternalConfig, error) {
 	config = *readConfig
 
 	config.SourcePath = j.filePath
+	if err := config.validate(); err != nil {
+		return nil, err
+	}
 
 	return &config, nil
 }

@@ -32,6 +32,9 @@ func (t tomlConfigLoader) LoadExternalConfig() (*ExternalConfig, error) {
 	config = *readConfig
 
 	config.SourcePath = t.filePath
+	if err := config.validate(); err != nil {
+		return nil, err
+	}
 
 	return &config, nil
 }

@@ -5,6 +5,7 @@ import (
 
 	"github.com/maramkhaledn/protolint/internal/filepathutil"
 	"github.com/maramkhaledn/protolint/linter/autodisable"
+	yaml "gopkg.in/yaml.v2"
 
 	"github.com/maramkhaledn/protolint/internal/cmd/subcmds"
 	"github.com/maramkhaledn/protolint/internal/linter/config"
@@ -324,6 +325,80 @@ func TestExternalConfig_ShouldSkipRule(t *testing.T) {
 				test.inputRuleID,
 				test.inputDisplayPath,
 				test.inputDefaultRuleIDs,
+			)
+			if got != test.wantSkipRule {
+				t.Errorf("got %v, but want %v", got, test.wantSkipRule)
+			}
+		})
+	}
+}
+
+func TestExternalConfig_ShouldSkipRuleWithRegexExcludes(t *testing.T) {
+	var externalConfig config.ExternalConfig
+	err := yaml.UnmarshalStrict([]byte(`
+lint:
+  files:
+    exclude_regex:
+      - ".*_generated\\.proto$"
+  directories:
+    exclude_regex:
+      - "^proto/generated/"
+  rules:
+    no_default: true
+    add:
+      - FIELD_NAMES_LOWER_SNAKE_CASE
+`), &externalConfig)
+	if err != nil {
+		t.Fatalf("got err %v, but want nil", err)
+	}
+
+	for _, test := range []struct {
+		name                        string
+		inputDisplayPath            string
+		inputIsWindowsPathSeparator bool
+		wantSkipRule                bool
+	}{
+		{
+			name:             "exclude the file matching regex",
+			inputDisplayPath: "proto/search/search_generated.proto",
+			wantSkipRule:     true,
+		},
+		{
+			name:             "exclude the directory matching regex",
+			inputDisplayPath: "proto/generated/search.proto",
+			wantSkipRule:     true,
+		},
+		{
+			name:                        "exclude the windows directory matching unix regex",
+			inputDisplayPath:            `proto\generated\search.proto`,
+			inputIsWindowsPathSeparator: true,
+			wantSkipRule:                true,
+		},
+		{
+			name:             "not exclude the unmatched file",
+			inputDisplayPath: "proto/search/search.proto",
+		},
+		{
+			name:             "not exclude the similar directory",
+			inputDisplayPath: "proto/generated_extra/search.proto",
+		},
+	} {
+		test := test
+		t.Run(test.name, func(t *testing.T) {
+			osPathSep := '/'
+			if test.inputIsWindowsPathSeparator {
+				osPathSep = '\\'
+			}
+			prevOSPathSep := filepathutil.OSPathSeparator
+			filepathutil.OSPathSeparator = osPathSep
+			defer func() {
+				filepathutil.OSPathSeparator = prevOSPathSep
+			}()
+
+			got := externalConfig.ShouldSkipRule(
+				"FIELD_NAMES_LOWER_SNAKE_CASE",
+				test.inputDisplayPath,
+				nil,
 			)
 			if got != test.wantSkipRule {
 				t.Errorf("got %v, but want %v", got, test.wantSkipRule)
