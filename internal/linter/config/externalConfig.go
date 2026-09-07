@@ -32,6 +32,9 @@ func (c ExternalConfig) ShouldSkipRule(
 // validate checks the parts of the config that the unmarshallers cannot check on their
 // own, and caches whatever they derive, so it has to run before the config is used.
 func (c *ExternalConfig) validate() error {
+	if err := c.Lint.Ignores.validate(); err != nil {
+		return err
+	}
 	if err := c.Lint.Files.validate(); err != nil {
 		return err
 	}

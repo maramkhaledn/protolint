@@ -7,10 +7,19 @@ func (is Ignores) shouldSkipRule(
 	ruleID string,
 	displayPath string,
 ) bool {
-	for _, ignore := range is {
-		if ignore.shouldSkipRule(ruleID, displayPath) {
+	for i := range is {
+		if is[i].shouldSkipRule(ruleID, displayPath) {
 			return true
 		}
 	}
 	return false
+}
+
+func (is *Ignores) validate() error {
+	for i := range *is {
+		if err := (*is)[i].validate(i); err != nil {
+			return err
+		}
+	}
+	return nil
 }
