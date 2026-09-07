@@ -34,6 +34,19 @@ func HasUnixPathPrefix(crossPlatformPath, unixPath string) bool {
 	)
 }
 
+// ToUnixPath converts a cross-platform path to a unix path.
+func ToUnixPath(crossPlatformPath string) string {
+	if OSPathSeparator == unixPathSeparator {
+		return crossPlatformPath
+	}
+	return strings.Replace(
+		crossPlatformPath,
+		osPathSeparator(),
+		string(unixPathSeparator),
+		-1,
+	)
+}
+
 func convertToOSPath(unixPath string) string {
 	return strings.Replace(
 		unixPath,

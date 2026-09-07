@@ -28,3 +28,13 @@ func (c ExternalConfig) ShouldSkipRule(
 		lint.Directories.shouldSkipRule(displayPath) ||
 		lint.Rules.shouldSkipRule(ruleID, defaultRuleIDs)
 }
+
+func (c ExternalConfig) validate() error {
+	if err := c.Lint.Files.validate(); err != nil {
+		return err
+	}
+	if err := c.Lint.Directories.validate(); err != nil {
+		return err
+	}
+	return nil
+}

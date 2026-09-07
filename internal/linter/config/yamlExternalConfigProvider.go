@@ -28,6 +28,9 @@ func (y yamlConfigLoader) LoadExternalConfig() (*ExternalConfig, error) {
 	}
 
 	config.SourcePath = y.filePath
+	if err := config.validate(); err != nil {
+		return nil, err
+	}
 
 	return &config, nil
 }

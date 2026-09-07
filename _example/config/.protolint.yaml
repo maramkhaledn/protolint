@@ -17,6 +17,10 @@ lint:
     exclude:
       # NOTE: UNIX paths will be properly accepted by both UNIX and Windows.
       - path/to/file
+    # The specific file path patterns to exclude.
+    exclude_regex:
+      # NOTE: Patterns are matched against UNIX-style display paths.
+      - ".*_generated\\.proto$"
 
   # Linter directories to walk.
   directories:
@@ -24,6 +28,10 @@ lint:
     exclude:
       # NOTE: UNIX paths will be properly accepted by both UNIX and Windows.
       - path/to/dir
+    # The specific directory path patterns to exclude.
+    exclude_regex:
+      # NOTE: Patterns are matched against UNIX-style display paths.
+      - "^path/to/generated/"
 
   # Linter rules.
   # Run `protolint list` to see all available rules.
