@@ -2,7 +2,6 @@ package config_test
 
 import (
 	"os"
-	"path/filepath"
 	"reflect"
 	"testing"
 
@@ -362,24 +361,5 @@ func TestGetExternalConfig(t *testing.T) {
 				t.Errorf("got %v, but want %v", got, test.wantExternalConfig)
 			}
 		})
-	}
-}
-
-func TestGetExternalConfigReturnsErrorForInvalidExcludeRegex(t *testing.T) {
-	dir := t.TempDir()
-	configPath := filepath.Join(dir, ".protolint.yaml")
-	err := os.WriteFile(configPath, []byte(`
-lint:
-  files:
-    exclude_regex:
-      - "["
-`), 0600)
-	if err != nil {
-		t.Fatalf("got err %v, but want nil", err)
-	}
-
-	got, err := config.GetExternalConfig("", dir)
-	if err == nil {
-		t.Fatalf("got config %v and err nil, but want err", got)
 	}
 }

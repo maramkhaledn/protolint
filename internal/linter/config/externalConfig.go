@@ -29,12 +29,11 @@ func (c ExternalConfig) ShouldSkipRule(
 		lint.Rules.shouldSkipRule(ruleID, defaultRuleIDs)
 }
 
-func (c ExternalConfig) validate() error {
+// validate checks the parts of the config that the unmarshallers cannot check on their
+// own, and caches whatever they derive, so it has to run before the config is used.
+func (c *ExternalConfig) validate() error {
 	if err := c.Lint.Files.validate(); err != nil {
 		return err
 	}
-	if err := c.Lint.Directories.validate(); err != nil {
-		return err
-	}
-	return nil
+	return c.Lint.Directories.validate()
 }
